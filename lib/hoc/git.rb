@@ -21,11 +21,18 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+require 'hoc/hits'
+
 module HOC
   # Git source code base.
   class Git
-    def read
-      nil
+    def initialize(dir)
+      @dir = dir
+    end
+    def hits
+      [
+        Hits.new(Time.new(0), Time.new(0), 1)
+      ]
     end
   end
 end

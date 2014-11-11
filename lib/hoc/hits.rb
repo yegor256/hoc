@@ -21,28 +21,14 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-require 'minitest/autorun'
-require 'hoc/git'
-require 'tmpdir'
-
-# Git test.
-# Author:: Yegor Bugayenko (yegor@teamed.io)
-# Copyright:: Copyright (c) 2014 Yegor Bugayenko
-# License:: MIT
-class TestGit < Minitest::Test
-  def test_parsing
-    Dir.mktmpdir 'test' do |dir|
-      system("
-        set -e
-        set -x
-        cd '#{dir}'
-        git init .
-        echo 'hello, world!' > test.txt
-        git add test.txt
-        git commit -m test
-      ")
-      hits = HOC::Git.new(dir).hits
-      assert_equal 1, hits.size
+module HOC
+  # Set of hits.
+  class Hits
+    def initialize(first, last, total)
+      @first = first
+      @last = last
+      @total = total
     end
+    attr_reader :first, :last, :total
   end
 end
