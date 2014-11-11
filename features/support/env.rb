@@ -21,5 +21,6 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-require 'simplecov'
+# it doesn't work, I don't know why :(
+# require 'simplecov'
 require 'hoc'

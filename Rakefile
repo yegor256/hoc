@@ -36,7 +36,7 @@ end
 task default: [:clean, :test, :features, :rubocop]
 
 task :clean do
-  rm_rf "coverage"
+  rm_rf 'coverage'
 end
 
 require 'rake/testtask'
@@ -67,6 +67,6 @@ require 'cucumber/rake/task'
 Cucumber::Rake::Task.new(:features) do |t|
   t.profile = 'travis'
 end
-Cucumber::Rake::Task.new(:"features:html") do |t|
+Cucumber::Rake::Task.new(:'features:html') do |t|
   t.profile = 'html_report'
 end

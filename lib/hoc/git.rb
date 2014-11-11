@@ -29,6 +29,7 @@ module HOC
     def initialize(dir)
       @dir = dir
     end
+
     def hits
       [
         Hits.new(Time.new(0), Time.new(0), 1)

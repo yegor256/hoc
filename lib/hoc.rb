@@ -40,7 +40,7 @@ module HOC
 
     # Generate report.
     def report
-      Git.new(@dir).hits.map{|h| h.total}.inject(:+)
+      Git.new(@dir).hits.map { |h| h.total }.inject(:+)
     end
   end
 end
