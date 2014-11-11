@@ -22,7 +22,6 @@
 # SOFTWARE.
 
 require 'hoc'
-require 'nokogiri'
 require 'tmpdir'
 require 'slop'
 require 'English'
@@ -39,8 +38,10 @@ After do
   FileUtils.rm_rf(@dir) if File.exist?(@dir)
 end
 
-Given(/^I clone git "([^"]+)"$/) do |uri|
-  @stdout = `git clone #{uri} .`
+Given(/^I run bash:$/) do |bash|
+  FileUtils.copy_entry(@cwd, File.join(@dir, 'hoc'))
+  @stdout = `#{bash}`
+  @exitstatus = $CHILD_STATUS.exitstatus
 end
 
 When(/^I run bin\/hoc with "([^"]*)"$/) do |arg|
@@ -59,6 +60,9 @@ Then(/^Exit code is zero$/) do
   fail "Non-zero exit code #{@exitstatus}" unless @exitstatus == 0
 end
 
-Then(/^Exit code is not zero$/) do
-  fail 'Zero exit code' if @exitstatus == 0
+Given(/^I have a "([^"]*)" file with content:$/) do |file, text|
+  FileUtils.mkdir_p(File.dirname(file)) unless File.exist?(file)
+  File.open(file, 'w') do |f|
+    f.write(text)
+  end
 end

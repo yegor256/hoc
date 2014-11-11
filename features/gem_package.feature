@@ -10,7 +10,7 @@ Feature: Gem Package
     spec = Gem::Specification::load('./spec.rb')
     fail 'no executables' if spec.executables.empty?
     """
-    When I run bash with
+    When I run bash:
     """
     set -e
     cd hoc
