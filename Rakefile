@@ -24,9 +24,6 @@
 require 'rubygems'
 require 'rake'
 require 'rdoc'
-require 'rake/clean'
-
-CLEAN = FileList['coverage', 'rdoc']
 
 def name
   @name ||= File.basename(Dir['*.gemspec'].first, '.*')
@@ -38,12 +35,16 @@ end
 
 task default: [:clean, :test, :features, :rubocop]
 
+task :clean do
+  rm_rf "coverage"
+end
+
 require 'rake/testtask'
 desc 'Run all unit tests'
 Rake::TestTask.new(:test) do |test|
   test.libs << 'lib' << 'test'
   test.pattern = 'test/**/test_*.rb'
-  test.verbose = false
+  test.verbose = true
 end
 
 require 'rdoc/task'
