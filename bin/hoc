@@ -30,7 +30,6 @@ require 'hoc/version'
 
 opts = Slop.parse(ARGV, strict: true, help: true) do
   banner "Usage (#{HOC::VERSION}): hoc [options]"
-  on 'v', 'verbose', 'Enable verbose mode'
   on 'f', 'format', 'Output format (text|xml|json|int)', default: 'int'
 end
 

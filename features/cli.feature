@@ -5,7 +5,7 @@ Feature: Command Line Processing
   Scenario: Help can be printed
     When I run bin/hoc with "-h"
     Then Exit code is zero
-    And Stdout contains "-f"
+    And Stdout contains "--format"
 
   Scenario: Simple git repo
     Given I run bash:
