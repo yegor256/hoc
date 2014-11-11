@@ -21,6 +21,8 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+require 'hoc/git'
+
 # HOC main module.
 # Author:: Yegor Bugayenko (yegor@teamed.io)
 # Copyright:: Copyright (c) 2014 Yegor Bugayenko
@@ -29,13 +31,16 @@ module HOC
   # Code base abstraction
   class Base
     # Ctor.
-    # +opts+:: Options
-    def initialize(opts)
-      @opts = opts
+    # +dir+:: Directory to read from
+    # +format+:: Format (xml, json, text)
+    def initialize(dir, format)
+      @dir = dir
+      @format = format
     end
 
     # Generate report.
     def report
+      Git.new(@dir).hits.map{|h| h.total}.inject(:+)
     end
   end
 end

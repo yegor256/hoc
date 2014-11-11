@@ -33,22 +33,16 @@ require 'slop'
 class TestHOC < Minitest::Test
   def test_basic
     Dir.mktmpdir 'test' do |dir|
-      opts = Slop.parse ['--format', 'xml'] do
-        on 'f', 'format', argument: :required
-      end
-      matches(
-        HOC::Base.new(opts).report,
-        [
-          '/hoc',
-          '/hoc/hits[@period]'
-        ]
-      )
-    end
-  end
-
-  def matches(xml, xpaths)
-    xpaths.each do |xpath|
-      fail "doesn't match '#{xpath}': #{xml}" unless xml.xpath(xpath).size == 1
+      system("
+        set -e
+        set -x
+        cd '#{dir}'
+        git init .
+        echo 'hello, world!' > test.txt
+        git add test.txt
+        git commit -m test
+      ")
+      assert HOC::Base.new(dir, 'total').report > 0
     end
   end
 end

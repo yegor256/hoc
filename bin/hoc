@@ -27,12 +27,11 @@ STDOUT.sync = true
 require 'hoc'
 require 'slop'
 require 'hoc/version'
-require 'nokogiri'
 
 opts = Slop.parse(ARGV, strict: true, help: true) do
   banner "Usage (#{HOC::VERSION}): hoc [options]"
   on 'v', 'verbose', 'Enable verbose mode'
-  on 'f', 'format', 'Output format to use (text|xml|json)', argument: :required
+  on 'f', 'format', 'Output format (text|xml|json|int)', default: 'int'
 end
 
 if opts.help?
@@ -43,4 +42,4 @@ end
 Encoding.default_external = Encoding::UTF_8
 Encoding.default_internal = Encoding::UTF_8
 
-puts 'under construction'
+puts HOC::Base.new(Dir.pwd, opts[:format]).report
