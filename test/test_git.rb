@@ -48,7 +48,7 @@ class TestGit < Minitest::Test
       hits = HOC::Git.new(dir).hits
       assert_equal 3, hits.size
       assert_equal 1, hits[0].total
-      assert_equal 1, hits[1].total
+      assert_equal 2, hits[1].total
       assert_equal 1, hits[2].total
     end
   end

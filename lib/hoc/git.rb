@@ -31,9 +31,16 @@ module HOC
     end
 
     def hits
-      [
-        Hits.new(Time.new(0), Time.new(0), 1)
-      ]
+      log = `git '--git-dir=#{@dir}/.git' log --pretty=format:%ci --numstat`
+      log.split(/\n\n/).map do |c|
+        lines = c.split(/\n/)
+        Hits.new(
+          Time.parse(lines[0]),
+          lines.drop(1).map do |f|
+            f.split(/\t/).take(2).map { |s| s.to_i }.inject(:+)
+          end.inject(:+)
+        )
+      end
     end
   end
 end

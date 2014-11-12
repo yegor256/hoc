@@ -24,11 +24,10 @@
 module HOC
   # Set of hits.
   class Hits
-    def initialize(first, last, total)
-      @first = first
-      @last = last
+    def initialize(date, total)
+      @date = date
       @total = total
     end
-    attr_reader :first, :last, :total
+    attr_reader :date, :total
   end
 end
