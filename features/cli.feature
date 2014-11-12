@@ -11,7 +11,6 @@ Feature: Command Line Processing
     Given I run bash:
     """
     set -e
-    set -x
     git init .
     echo 'hello, world!' > test.txt
     git add test.txt
@@ -20,3 +19,13 @@ Feature: Command Line Processing
     When I run bin/hoc with "-f int"
     Then Exit code is zero
     And Stdout contains "1"
+
+  Scenario: Real git repo
+    Given I run bash:
+    """
+    set -e
+    rm -rf *
+    git clone https://github.com/teamed/hoc.git .
+    """
+    When I run bin/hoc with "-f int"
+    Then Exit code is zero
