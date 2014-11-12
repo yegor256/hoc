@@ -39,10 +39,17 @@ class TestGit < Minitest::Test
         git init .
         echo 'hello, world!' > test.txt
         git add test.txt
-        git commit -m test
+        git add .; git commit -m 'add line'
+        echo 'good bye, world!' > test.txt
+        git add .; git commit -m 'modify line'
+        rm test.txt
+        git add .; git commit -m 'delete line'
       ")
       hits = HOC::Git.new(dir).hits
-      assert_equal 1, hits.size
+      assert_equal 3, hits.size
+      assert_equal 1, hits[0].total
+      assert_equal 1, hits[1].total
+      assert_equal 1, hits[2].total
     end
   end
 end
