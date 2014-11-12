@@ -40,7 +40,11 @@ module HOC
 
     # Generate report.
     def report
-      Git.new(@dir).hits.map { |h| h.total }.inject(:+)
+      if File.exist?(File.join(@dir, '.git'))
+        Git.new(@dir).hits.map { |h| h.total }.inject(:+)
+      else
+        fail 'only Git repositories supported now'
+      end
     end
   end
 end
