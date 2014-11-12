@@ -45,4 +45,12 @@ class TestHOC < Minitest::Test
       assert HOC::Base.new(dir, 'total').report > 0
     end
   end
+
+  def test_fails_if_not_repo
+    Dir.mktmpdir 'test' do |dir|
+      assert_raises RuntimeError do
+        HOC::Base.new(dir, 'total').report
+      end
+    end
+  end
 end
