@@ -16,7 +16,7 @@ Feature: Command Line Processing
     git config user.name test
     echo 'hello, world!' > test.txt
     git add test.txt
-    git commit -m test
+    git commit -am test
     """
     When I run bin/hoc with "-f int"
     Then Exit code is zero

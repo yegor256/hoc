@@ -42,7 +42,7 @@ class TestHOC < Minitest::Test
         git config user.name test
         echo 'hello, world!' > test.txt
         git add test.txt
-        git commit -m test
+        git commit -am test
       ")
       assert HOC::Base.new(dir, 'total').report > 0
     end
