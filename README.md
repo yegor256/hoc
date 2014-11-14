@@ -10,7 +10,8 @@
 Install it first:
 
 ```bash
-gem install hoc
+$ apt-get install diffstat
+$ gem install hoc
 ```
 
 Run it locally and read its output:
