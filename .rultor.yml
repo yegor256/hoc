@@ -5,6 +5,10 @@ assets:
 install: |
   sudo gem install pdd
   sudo apt-get install -y subversion diffstat
+  sudo add-apt-repository -y ppa:git-core/ppa
+  sudo apt-get update
+  sudo apt-get remove git
+  sudo apt-get install -y git
 
 release:
   script: |
