@@ -7,6 +7,8 @@ install:
   - travis_retry sudo apt-get update
   - travis_retry sudo apt-get install -y diffstat
   - travis_retry sudo apt-get remove -y subversion
+  - travis_retry sudo add-apt-repository "deb http://ppa.launchpad.net/svn/ppa/ubuntu precise main"
+  - travis_retry sudo apt-get update
   - travis_retry sudo apt-get install -y subversion
   - travis_retry bundle install
 script:
