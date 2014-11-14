@@ -33,9 +33,10 @@ module HOC
 
     def hits
       version = `svn --version --quiet`
-      fail "svn version #{version} is too old" unless
+      fail "svn version #{version} is too old, upgrade it to 1.7+" unless
         Gem::Version.new(version) >= Gem::Version.new('1.7')
-      fail 'diffstat is not installed' if `diffstat -V`.index('version').nil?
+      fail 'diffstat is not installed' if
+        `diffstat -V`.index('version').nil?
       log = `cd '#{@dir}'; svn log --diff | diffstat`
       [
         Hits.new(
