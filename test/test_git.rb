@@ -47,10 +47,8 @@ class TestGit < Minitest::Test
         git commit -am 'delete line'
       ")
       hits = HOC::Git.new(dir).hits
-      assert_equal 3, hits.size
-      assert_equal 1, hits[0].total
-      assert_equal 2, hits[1].total
-      assert_equal 1, hits[2].total
+      assert_equal 1, hits.size
+      assert_equal 4, hits[0].total
     end
   end
 end
