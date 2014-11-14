@@ -32,7 +32,7 @@ require 'tmpdir'
 class TestGit < Minitest::Test
   def test_parsing
     Dir.mktmpdir 'test' do |dir|
-      system("
+      fail unless system("
         set -e
         cd '#{dir}'
         git init .

@@ -33,7 +33,7 @@ require 'slop'
 class TestHOC < Minitest::Test
   def test_basic_git
     Dir.mktmpdir 'test' do |dir|
-      system("
+      fail unless system("
         set -e
         cd '#{dir}'
         git init .
@@ -49,7 +49,7 @@ class TestHOC < Minitest::Test
 
   def test_basic_svn
     Dir.mktmpdir 'test' do |dir|
-      system("
+      fail unless system("
         set -e
         cd '#{dir}'
         svnadmin create base
