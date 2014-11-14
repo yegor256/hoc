@@ -5,7 +5,8 @@ branches:
     - master
 install:
   - sudo apt-get update
-  - travis_retry sudo apt-get install -y --fix-missing diffstat
+  - travis_retry sudo apt-get install -y diffstat
+  - travis_retry sudo apt-get install -y subversion
   - travis_retry bundle install
 script:
   - rake
