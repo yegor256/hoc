@@ -4,6 +4,7 @@ assets:
 
 install: |
   sudo gem install pdd
+  sudo apt-get install -y subversion diffstat
 
 release:
   script: |
