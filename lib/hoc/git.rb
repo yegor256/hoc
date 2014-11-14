@@ -32,6 +32,9 @@ module HOC
     end
 
     def hits
+      version = `git --version`.split(/ /)[2]
+      fail "git version #{version} is too old, upgrade it to 2.0+" unless
+        Gem::Version.new(version) >= Gem::Version.new('2.0')
       log = `git '--git-dir=#{@dir}/.git' log --pretty=tformat: --numstat`
       [
         Hits.new(
