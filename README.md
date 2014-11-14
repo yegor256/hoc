@@ -18,3 +18,5 @@ Run it locally and read its output:
 ```bash
 $ hoc --help
 ```
+
+At the moment we support Git 2+ and Subversion 1.7+
