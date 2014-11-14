@@ -7,7 +7,6 @@ install:
   - travis_retry sudo apt-get update
   - travis_retry sudo apt-get install -y diffstat
   - travis_retry sudo apt-get install -y --only-upgrade subversion
-  - travis_retry sudo apt-get upgrade subversion
   - travis_retry bundle install
 script:
   - rake
