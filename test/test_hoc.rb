@@ -35,7 +35,6 @@ class TestHOC < Minitest::Test
     Dir.mktmpdir 'test' do |dir|
       system("
         set -e
-        set -x
         cd '#{dir}'
         git init .
         git config user.email test@teamed.io

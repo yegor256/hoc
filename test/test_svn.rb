@@ -22,35 +22,34 @@
 # SOFTWARE.
 
 require 'minitest/autorun'
-require 'hoc/git'
+require 'hoc/svn'
 require 'tmpdir'
 
-# Git test.
+# Svn test.
 # Author:: Yegor Bugayenko (yegor@teamed.io)
 # Copyright:: Copyright (c) 2014 Yegor Bugayenko
 # License:: MIT
-class TestGit < Minitest::Test
+class TestSvn < Minitest::Test
   def test_parsing
     Dir.mktmpdir 'test' do |dir|
       system("
         set -e
         cd '#{dir}'
-        git init .
-        git config user.email test@teamed.io
-        git config user.name test
-        echo 'hello, world!' > test.txt
-        git add test.txt
-        git commit -am 'add line'
-        echo 'good bye, world!' > test.txt
-        git commit -am 'modify line'
-        rm test.txt
-        git commit -am 'delete line'
+        svnadmin create base
+        svn co file://#{dir}/base repo
+        cd repo
+        echo 'Hello, world!' > test.txt
+        svn add test.txt
+        svn ci -m 'first commit'
+        echo 'Bye!' > test.txt
+        svn ci -m 'second commit'
+        svn rm test.txt
+        svn ci -m 'third commit'
+        svn up
       ")
-      hits = HOC::Git.new(dir).hits
-      assert_equal 3, hits.size
-      assert_equal 1, hits[0].total
-      assert_equal 2, hits[1].total
-      assert_equal 1, hits[2].total
+      hits = HOC::Svn.new(File.join(dir, 'repo')).hits
+      assert_equal 1, hits.size
+      assert_equal 4, hits[0].total
     end
   end
 end
