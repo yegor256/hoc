@@ -30,7 +30,8 @@ require 'hoc/version'
 
 opts = Slop.parse(ARGV, strict: true, help: true) do
   banner "Usage (#{HOC::VERSION}): hoc [options]"
-  on 'f', 'format', 'Output format (text|xml|json|int)', default: 'int'
+  on 'f', 'format', 'Output format (text|xml|json|int)',
+     default: 'int', argument: :required
 end
 
 if opts.help?

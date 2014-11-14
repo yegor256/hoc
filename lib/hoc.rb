@@ -22,6 +22,7 @@
 # SOFTWARE.
 
 require 'hoc/git'
+require 'hoc/svn'
 
 # HOC main module.
 # Author:: Yegor Bugayenko (yegor@teamed.io)
@@ -36,15 +37,20 @@ module HOC
     def initialize(dir, format)
       @dir = dir
       @format = format
+      fail "only int format is supported (#{@format})" unless @format == 'int'
     end
 
     # Generate report.
     def report
+      repo = nil
       if File.exist?(File.join(@dir, '.git'))
-        Git.new(@dir).hits.map { |h| h.total }.inject(:+)
+        repo = Git.new(@dir)
+      elsif File.exist?(File.join(@dir, '.svn'))
+        repo = Svn.new(@dir)
       else
         fail 'only Git repositories supported now'
       end
+      repo.hits.map { |h| h.total }.inject(:+)
     end
   end
 end

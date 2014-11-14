@@ -31,7 +31,7 @@ require 'slop'
 # Copyright:: Copyright (c) 2014 Yegor Bugayenko
 # License:: MIT
 class TestHOC < Minitest::Test
-  def test_basic
+  def test_basic_git
     Dir.mktmpdir 'test' do |dir|
       system("
         set -e
@@ -43,14 +43,35 @@ class TestHOC < Minitest::Test
         git add test.txt
         git commit -am test
       ")
-      assert HOC::Base.new(dir, 'total').report > 0
+      assert HOC::Base.new(dir, 'int').report > 0
+    end
+  end
+
+  def test_basic_svn
+    Dir.mktmpdir 'test' do |dir|
+      system("
+        set -e
+        cd '#{dir}'
+        svnadmin create base
+        svn co file://#{dir}/base repo
+        cd repo
+        echo 'Hello, world!' > test.txt
+        svn add test.txt
+        svn ci -m 'first commit'
+        echo 'Bye!' > test.txt
+        svn ci -m 'second commit'
+        svn rm test.txt
+        svn ci -m 'third commit'
+        svn up
+      ")
+      assert HOC::Base.new(File.join(dir, 'repo'), 'int').report > 0
     end
   end
 
   def test_fails_if_not_repo
     Dir.mktmpdir 'test' do |dir|
       assert_raises RuntimeError do
-        HOC::Base.new(dir, 'total').report
+        HOC::Base.new(dir, 'int').report
       end
     end
   end
