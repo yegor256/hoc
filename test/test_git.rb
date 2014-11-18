@@ -51,4 +51,17 @@ class TestGit < Minitest::Test
       assert_equal 4, hits[0].total
     end
   end
+
+  def test_parsing_with_empty_git
+    Dir.mktmpdir 'test' do |dir|
+      fail unless system("
+        set -e
+        cd '#{dir}'
+        git init .
+      ")
+      hits = HOC::Git.new(dir).hits
+      assert_equal 1, hits.size
+      assert_equal 0, hits[0].total
+    end
+  end
 end
