@@ -39,7 +39,7 @@ module HOC
       [
         Hits.new(
           Time.now,
-          log.split(/\n/).map do |t|
+          log.split(/\n/).delete_if(&:empty?).map do |t|
             t.split(/\t/).take(2).map { |s| s.to_i }.inject(:+)
           end.inject(:+)
         )
