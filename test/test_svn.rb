@@ -52,4 +52,20 @@ class TestSvn < Minitest::Test
       assert_equal 4, hits[0].total
     end
   end
+
+  def test_parsing_empty_repo
+    skip('fails now')
+    Dir.mktmpdir 'test' do |dir|
+      fail unless system("
+        set -e
+        cd '#{dir}'
+        svnadmin create base
+        svn co file://#{dir}/base repo
+        cd repo
+      ")
+      hits = HOC::Svn.new(File.join(dir, 'repo')).hits
+      assert_equal 1, hits.size
+      assert_equal 0, hits[0].total
+    end
+  end
 end
