@@ -35,13 +35,20 @@ module HOC
       version = `git --version`.split(/ /)[2]
       fail "git version #{version} is too old, upgrade it to 2.0+" unless
         Gem::Version.new(version) >= Gem::Version.new('2.0')
-      log = `git '--git-dir=#{@dir}/.git' log --pretty=tformat: --numstat`
+      cmd = [
+        'git',
+        "'--git-dir=#{@dir}/.git'",
+        'log', '--pretty=tformat:', '--numstat',
+        '--ignore-space-change', '--ignore-all-space',
+        '--ignore-submodules', '--no-color',
+        '--find-copies-harder', '-M', '--diff-filter=ACDM'
+      ].join(' ')
       [
         Hits.new(
           Time.now,
-          log.split(/\n/).delete_if(&:empty?).map do |t|
+          `#{cmd}`.split(/\n/).delete_if(&:empty?).map do |t|
             t.split(/\t/).take(2).map { |s| s.to_i }.inject(:+)
-          end.inject(:+)
+          end.inject(:+) || 0
         )
       ]
     end
