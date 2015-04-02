@@ -64,4 +64,25 @@ class TestGit < Minitest::Test
       assert_equal 0, hits[0].total
     end
   end
+
+  def test_ignores_binary_files
+    Dir.mktmpdir 'test' do |dir|
+      fail unless system("
+        set -e
+        cd '#{dir}'
+        git init .
+        git config user.email test@teamed.io
+        git config user.name test
+        time dd if=/dev/random of=test.dat bs=1 count=65536
+        git add test.dat
+        git commit -am 'binary file'
+        time dd if=/dev/random of=test.dat bs=1 count=65536
+        git add test.dat
+        git commit -am 'binary file modified'
+      ")
+      hits = HOC::Git.new(dir).hits
+      assert_equal 1, hits.size
+      assert_equal 0, hits[0].total
+    end
+  end
 end

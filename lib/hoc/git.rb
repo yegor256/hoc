@@ -43,6 +43,7 @@ module HOC
         '--ignore-submodules', '--no-color',
         '--find-copies-harder', '-M', '--diff-filter=ACDM'
       ].join(' ')
+      p `#{cmd}`
       [
         Hits.new(
           Time.now,
