@@ -5,7 +5,7 @@
 [![Gem Version](https://badge.fury.io/rb/hoc.svg)](http://badge.fury.io/rb/hoc)
 [![Dependency Status](https://gemnasium.com/teamed/hoc.svg)](https://gemnasium.com/teamed/hoc)
 [![Code Climate](http://img.shields.io/codeclimate/github/teamed/hoc.svg)](https://codeclimate.com/github/teamed/hoc)
-[![Coverage Status](https://img.shields.io/coveralls/teamed/hoc.svg)](https://coveralls.io/r/teamed/hoc)
+[![Coverage Status](https://coveralls.io/repos/teamed/hoc/badge.svg)](https://coveralls.io/r/teamed/hoc)
 
 It is a command line tool to calculate Hits-of-Code metric
 in a source code repository (at the moment we support Git 2+ and Subversion 1.7+).

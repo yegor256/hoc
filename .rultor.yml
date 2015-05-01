@@ -3,7 +3,7 @@ assets:
   s3cfg: "yegor256/home#assets/s3cfg"
 
 install: |
-  sudo gem install pdd
+  sudo gem install --no-ri --no-rdoc pdd
   sudo apt-get install -y subversion diffstat
   sudo apt-get install -y software-properties-common
   sudo add-apt-repository -y ppa:git-core/ppa
