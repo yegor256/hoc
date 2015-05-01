@@ -32,27 +32,28 @@ args = []
 args.push(*File.read('.hoc').split(/\s+/).map(&:strip)) if File.exist?('.hoc')
 args.push(*ARGV)
 
-opts = Slop.parse(args, strict: true, help: true) do
-  banner "Usage (#{HOC::VERSION}): hoc [options]"
-  on(
-    'f',
-    'format',
+opts = Slop.parse(args, strict: true, help: true) do |o|
+  o.banner = "Usage (#{HOC::VERSION}): hoc [options]"
+  o.on '-v', '--version', 'Print the version' do
+    puts HOC::VERSION
+    exit
+  end
+  o.on '-h', '--help', 'Print help' do
+    puts o
+    exit
+  end
+  o.integer(
+    '-f',
+    '--format',
     'Output format (text|xml|json|int)',
-    default: 'int',
     argument: :required
   )
-  on(
-    'e',
-    'exclude',
+  o.array(
+    '-e',
+    '--exclude',
     'Glob pattern to exclude files/dirs, e.g. "vendor/**"',
-    as: Array,
     argument: :required
   )
-end
-
-if opts.help?
-  puts opts
-  exit
 end
 
 Encoding.default_external = Encoding::UTF_8
