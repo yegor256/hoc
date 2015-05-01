@@ -73,10 +73,10 @@ class TestGit < Minitest::Test
         git init .
         git config user.email test@teamed.io
         git config user.name test
-        time dd if=/dev/random of=test.dat bs=1 count=65536
+        dd if=/dev/random of=test.dat bs=1 count=65536
         git add test.dat
         git commit -am 'binary file'
-        time dd if=/dev/random of=test.dat bs=1 count=65536
+        dd if=/dev/random of=test.dat bs=1 count=65536
         git add test.dat
         git commit -am 'binary file modified'
       ")
