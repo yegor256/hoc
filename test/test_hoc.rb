@@ -75,4 +75,12 @@ class TestHOC < Minitest::Test
       end
     end
   end
+
+  def test_fails_if_not_int
+    Dir.mktmpdir 'test' do |dir|
+      assert_raises RuntimeError do
+        HOC::Base.new(dir, 'text').report
+      end
+    end
+  end
 end

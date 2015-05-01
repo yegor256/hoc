@@ -28,7 +28,11 @@ require 'hoc'
 require 'slop'
 require 'hoc/version'
 
-opts = Slop.parse(ARGV, strict: true, help: true) do
+args = []
+args.push(*File.read('.hoc').split(/\s+/).map(&:strip)) if File.exist?('.hoc')
+args.push(*ARGV)
+
+opts = Slop.parse(args, strict: true, help: true) do
   banner "Usage (#{HOC::VERSION}): hoc [options]"
   on 'f', 'format', 'Output format (text|xml|json|int)',
      default: 'int', argument: :required

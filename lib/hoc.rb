@@ -37,7 +37,8 @@ module HOC
     def initialize(dir, format)
       @dir = dir
       @format = format
-      fail "only int format is supported (#{@format})" unless @format == 'int'
+      fail "only \"int\" format is supported now (\"#{@format}\" provided)" \
+        unless @format == 'int'
     end
 
     # Generate report.
