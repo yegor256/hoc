@@ -41,7 +41,8 @@ module HOC
         'log', '--pretty=tformat:', '--numstat',
         '--ignore-space-change', '--ignore-all-space',
         '--ignore-submodules', '--no-color',
-        '--find-copies-harder', '-M', '--diff-filter=ACDM'
+        '--find-copies-harder', '-M', '--diff-filter=ACDM',
+        '--', '.'
       ].join(' ')
       p `#{cmd}`
       [
