@@ -34,8 +34,20 @@ args.push(*ARGV)
 
 opts = Slop.parse(args, strict: true, help: true) do
   banner "Usage (#{HOC::VERSION}): hoc [options]"
-  on 'f', 'format', 'Output format (text|xml|json|int)',
-     default: 'int', argument: :required
+  on(
+    'f',
+    'format',
+    'Output format (text|xml|json|int)',
+    default: 'int',
+    argument: :required
+  )
+  on(
+    'e',
+    'exclude',
+    'Glob pattern to exclude files/dirs, e.g. "vendor/**"',
+    as: Array,
+    argument: :required
+  )
 end
 
 if opts.help?
@@ -46,4 +58,4 @@ end
 Encoding.default_external = Encoding::UTF_8
 Encoding.default_internal = Encoding::UTF_8
 
-puts HOC::Base.new(Dir.pwd, opts[:format]).report
+puts HOC::Base.new(Dir.pwd, opts).report

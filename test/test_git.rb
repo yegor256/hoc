@@ -46,7 +46,7 @@ class TestGit < Minitest::Test
         rm test.txt
         git commit -am 'delete line'
       ")
-      hits = HOC::Git.new(dir).hits
+      hits = HOC::Git.new(dir, []).hits
       assert_equal 1, hits.size
       assert_equal 4, hits[0].total
     end
@@ -59,7 +59,7 @@ class TestGit < Minitest::Test
         cd '#{dir}'
         git init .
       ")
-      hits = HOC::Git.new(dir).hits
+      hits = HOC::Git.new(dir, []).hits
       assert_equal 1, hits.size
       assert_equal 0, hits[0].total
     end
@@ -80,7 +80,7 @@ class TestGit < Minitest::Test
         git add test.dat
         git commit -am 'binary file modified'
       ")
-      hits = HOC::Git.new(dir).hits
+      hits = HOC::Git.new(dir, []).hits
       assert_equal 1, hits.size
       assert_equal 0, hits[0].total
     end

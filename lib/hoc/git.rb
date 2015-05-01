@@ -27,8 +27,9 @@ require 'hoc/hits'
 module HOC
   # Git source code base.
   class Git
-    def initialize(dir)
+    def initialize(dir, exclude)
       @dir = dir
+      @exclude = exclude
     end
 
     def hits
@@ -42,9 +43,9 @@ module HOC
         '--ignore-space-change', '--ignore-all-space',
         '--ignore-submodules', '--no-color',
         '--find-copies-harder', '-M', '--diff-filter=ACDM',
-        '--', '.'
+        '--', '.',
+        @exclude.map { |e| "':(exclude,glob)#{e}'" }.join(' ')
       ].join(' ')
-      p `#{cmd}`
       [
         Hits.new(
           Time.now,

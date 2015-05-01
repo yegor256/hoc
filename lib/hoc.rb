@@ -33,19 +33,19 @@ module HOC
   class Base
     # Ctor.
     # +dir+:: Directory to read from
-    # +format+:: Format (xml, json, text)
-    def initialize(dir, format)
+    # +opts+:: Options
+    def initialize(dir, opts)
       @dir = dir
-      @format = format
-      fail "only \"int\" format is supported now (\"#{@format}\" provided)" \
-        unless @format == 'int'
+      fail "only \"int\" format is supported now" unless
+        opts[:format].nil? || opts[:format] == 'int'
+      @exclude = opts[:exclude].nil? ? [] : opts[:exclude]
     end
 
     # Generate report.
     def report
       repo = nil
       if File.exist?(File.join(@dir, '.git'))
-        repo = Git.new(@dir)
+        repo = Git.new(@dir, @exclude)
       elsif File.exist?(File.join(@dir, '.svn'))
         repo = Svn.new(@dir)
       else

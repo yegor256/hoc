@@ -43,7 +43,7 @@ class TestHOC < Minitest::Test
         git add test.txt
         git commit -am test
       ")
-      assert HOC::Base.new(dir, 'int').report > 0
+      assert HOC::Base.new(dir, exclude: ['a/**']).report > 0
     end
   end
 
@@ -64,14 +64,14 @@ class TestHOC < Minitest::Test
         svn ci -m 'third commit'
         svn up
       ")
-      assert HOC::Base.new(File.join(dir, 'repo'), 'int').report > 0
+      assert HOC::Base.new(File.join(dir, 'repo'), {}).report > 0
     end
   end
 
   def test_fails_if_not_repo
     Dir.mktmpdir 'test' do |dir|
       assert_raises RuntimeError do
-        HOC::Base.new(dir, 'int').report
+        HOC::Base.new(dir, {}).report
       end
     end
   end
@@ -79,7 +79,7 @@ class TestHOC < Minitest::Test
   def test_fails_if_not_int
     Dir.mktmpdir 'test' do |dir|
       assert_raises RuntimeError do
-        HOC::Base.new(dir, 'text').report
+        HOC::Base.new(dir, format: 'text').report
       end
     end
   end
