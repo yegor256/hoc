@@ -17,6 +17,7 @@ release:
     rake
     rm -rf *.gem
     sed -i "s/1\.0\.snapshot/${tag}/g" lib/hoc/version.rb
+    git commit -m "${tag}" lib/hoc/version.rb
     gem build hoc.gemspec
     chmod 0600 ../rubygems.yml
     gem push *.gem --config-file ../rubygems.yml
