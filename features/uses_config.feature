@@ -4,11 +4,12 @@ Feature: Using .hoc config file
   it via .hoc configuration file
 
   Scenario: Simple hoc counting
+    Given It is Unix
     Given I run bash:
-    """
-    set -e
-    echo '--help' > .hoc
-    """
+      """
+      set -e
+      echo '--help' > .hoc
+      """
     When I run bin/hoc with "-f int"
     Then Exit code is zero
     And Stdout contains "[options]"

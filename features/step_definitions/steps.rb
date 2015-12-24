@@ -38,6 +38,10 @@ After do
   FileUtils.rm_rf(@dir) if File.exist?(@dir)
 end
 
+Given(/^It is Unix$/) do
+  skip_this_scenario if Gem.win_platform?
+end
+
 Given(/^I run bash:$/) do |bash|
   FileUtils.copy_entry(@cwd, File.join(@dir, 'hoc'))
   @stdout = `#{bash}`

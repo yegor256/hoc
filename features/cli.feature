@@ -8,6 +8,7 @@ Feature: Command Line Processing
     And Stdout contains "--format"
 
   Scenario: Simple git repo
+    Given It is Unix
     Given I run bash:
     """
     set -e
@@ -23,6 +24,7 @@ Feature: Command Line Processing
     And Stdout contains "1"
 
   Scenario: Real git repo
+    Given It is Unix
     Given I run bash:
     """
     set -e
