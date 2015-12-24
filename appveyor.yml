@@ -13,6 +13,7 @@ install:
   - cmd: svn --version
   - cmd: git --version
 build_script:
+  - bundle update
   - bundle install
 test_script:
   - rake clean test features:html rubocop
