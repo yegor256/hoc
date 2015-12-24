@@ -46,9 +46,9 @@ Given(/^It is Windows$/) do
   pending unless Gem.win_platform?
 end
 
-Given(/^I run bash:$/) do |bash|
+Given(/^I run bash:$/) do |script|
   FileUtils.copy_entry(@cwd, File.join(@dir, 'hoc'))
-  @stdout = `#{bash}`
+  @stdout = `#{script.gsub('\\n', '\\n\\r')}`
   @exitstatus = $CHILD_STATUS.exitstatus
 end
 
