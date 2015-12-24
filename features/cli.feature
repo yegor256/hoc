@@ -46,5 +46,5 @@ Feature: Command Line Processing
       echo "Git repo is ready in current dir"
       """
     Then Exit code is zero
-    When I run bin/hoc with "-f int"
-    Then Exit code is zero
+#    When I run bin/hoc with "-f int"
+#    Then Exit code is zero
