@@ -19,6 +19,7 @@ Feature: Command Line Processing
       git add test.txt
       git commit -am test
       """
+    Then Exit code is zero
     When I run bin/hoc with "-f int"
     Then Exit code is zero
     And Stdout contains "1"
@@ -31,6 +32,7 @@ Feature: Command Line Processing
       rm -rf *
       git clone https://github.com/teamed/hoc.git .
       """
+    Then Exit code is zero
     When I run bin/hoc with "-f int"
     Then Exit code is zero
 
