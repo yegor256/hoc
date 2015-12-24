@@ -38,13 +38,10 @@ Feature: Command Line Processing
     Given It is Windows
     Given I run bash:
       """
-      echo "start it"
       del /q *.*
-      echo "cloning Git repo for tests..."
       git clone https://github.com/teamed/hoc.git .
-      echo "Git repo is ready in current dir"
       """
     Then Exit code is zero
     And Stdout contains "yyyy"
-#    When I run bin/hoc with "-f int"
-#    Then Exit code is zero
+    When I run bin/hoc with "-f int"
+    Then Exit code is zero

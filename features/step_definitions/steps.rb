@@ -49,7 +49,6 @@ end
 Given(/^I run bash:$/) do |script|
   FileUtils.copy_entry(@cwd, File.join(@dir, 'hoc'))
   cmd = script.split("\n").join(' && ')
-  puts "runnding this cmd: [#{cmd}]"
   @stdout = `#{cmd}`
   @exitstatus = $CHILD_STATUS.exitstatus
 end
