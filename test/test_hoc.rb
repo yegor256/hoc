@@ -32,6 +32,7 @@ require 'slop'
 # License:: MIT
 class TestHOC < Minitest::Test
   def test_basic_git
+    skip if Gem.win_platform?
     Dir.mktmpdir 'test' do |dir|
       fail unless system("
         set -e
@@ -48,6 +49,7 @@ class TestHOC < Minitest::Test
   end
 
   def test_basic_svn
+    skip if Gem.win_platform?
     Dir.mktmpdir 'test' do |dir|
       fail unless system("
         set -e

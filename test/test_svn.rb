@@ -31,6 +31,7 @@ require 'tmpdir'
 # License:: MIT
 class TestSvn < Minitest::Test
   def test_parsing
+    skip if Gem.win_platform?
     Dir.mktmpdir 'test' do |dir|
       fail unless system("
         set -e

@@ -31,6 +31,7 @@ require 'tmpdir'
 # License:: MIT
 class TestGit < Minitest::Test
   def test_parsing
+    skip if Gem.win_platform?
     Dir.mktmpdir 'test' do |dir|
       fail unless system("
         set -e
@@ -53,6 +54,7 @@ class TestGit < Minitest::Test
   end
 
   def test_parsing_with_empty_git
+    skip if Gem.win_platform?
     Dir.mktmpdir 'test' do |dir|
       fail unless system("
         set -e
@@ -66,6 +68,7 @@ class TestGit < Minitest::Test
   end
 
   def test_ignores_binary_files
+    skip if Gem.win_platform?
     Dir.mktmpdir 'test' do |dir|
       fail unless system("
         set -e
