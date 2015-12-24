@@ -48,7 +48,7 @@ end
 
 Given(/^I run bash:$/) do |script|
   FileUtils.copy_entry(@cwd, File.join(@dir, 'hoc'))
-  @stdout = `#{script.gsub('\\n', '\\n\\r')}`
+  @stdout = `#{script.gsub('\n', '\n\r')}`
   @exitstatus = $CHILD_STATUS.exitstatus
 end
 
