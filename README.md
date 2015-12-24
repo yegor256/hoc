@@ -2,6 +2,8 @@
 [![DevOps By Rultor.com](http://www.rultor.com/b/teamed/hoc)](http://www.rultor.com/p/teamed/hoc)
 
 [![Build Status](https://travis-ci.org/teamed/hoc.svg)](https://travis-ci.org/teamed/hoc)
+[![Build status](https://ci.appveyor.com/api/projects/status/yww1brb4xy80jh11?svg=true)](https://ci.appveyor.com/project/yegor256/hoc)
+
 [![Gem Version](https://badge.fury.io/rb/hoc.svg)](http://badge.fury.io/rb/hoc)
 [![Dependency Status](https://gemnasium.com/teamed/hoc.svg)](https://gemnasium.com/teamed/hoc)
 [![Code Climate](http://img.shields.io/codeclimate/github/teamed/hoc.svg)](https://codeclimate.com/github/teamed/hoc)
