@@ -39,7 +39,9 @@ Feature: Command Line Processing
     Given I run bash:
       """
       del /q *.*
+      echo "cloning Git repo for tests..."
       git clone https://github.com/teamed/hoc.git .
+      echo "Git repo is ready in current dir"
       """
     When I run bin/hoc with "-f int"
     Then Exit code is zero
