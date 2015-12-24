@@ -26,4 +26,24 @@ Run it locally and read its output:
 $ hoc --help
 ```
 
+## Questions?
+
+If you have any questions about the tool, or something doesn't work as expected,
+please [submit an issue here](https://github.com/teamed/hoc/issues/new).
+
+## How to contribute?
+
+Fork the repository, make changes, submit a pull request.
+We promise to review your changes same day and apply to
+the `master` branch, if they look correct.
+
+Please run Rake build before submitting a pull request (make sure you
+have [bundler](http://bundler.io/) installed):
+
+```
+$ bundle install
+$ rake
+```
+
+Make sure you're using Ruby 2.0+.
 
