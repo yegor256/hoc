@@ -17,6 +17,9 @@ install:
   - travis_retry sudo apt-get update
   - travis_retry sudo apt-get install -y subversion git
   - travis_retry bundle install
+  - svn --version
+  - git --version
+  - diffstat --version
 script:
   - rake
 
