@@ -60,7 +60,7 @@ end
 
 Then(/^Stdout contains "([^"]*)"$/) do |txt|
   unless @stdout.include?(txt)
-    fail "STDOUT doesn't contain '#{txt}':\n#{@stdout}"
+    fail "STDOUT doesn't contain '#{txt}':\n\n--------\n#{@stdout}\n--------\n"
   end
 end
 
