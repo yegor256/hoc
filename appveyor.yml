@@ -8,12 +8,7 @@ branches:
     - gh-pages
 os: Windows Server 2012
 install:
-  - cmd: gem install pik
-  - cmd: SET PATH=%PATH%;C:\bin
-  - cmd: pik_install C:\bin
-  - cmd: pik list
-  - cmd: pik install ruby 2.0
-  - cmd: pik use 2.0
+  - cmd: SET PATH=C:\Ruby200;%PATH%
   - cmd: ruby --version
 build_script:
   - bundle install
