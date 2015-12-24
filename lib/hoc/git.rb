@@ -37,8 +37,7 @@ module HOC
       fail "git version #{version} is too old, upgrade it to 2.0+" unless
         Gem::Version.new(version) >= Gem::Version.new('2.0')
       cmd = [
-        'git',
-        "'--git-dir=#{@dir}/.git'",
+        "cd #{@dir} && git",
         'log', '--pretty=tformat:', '--numstat',
         '--ignore-space-change', '--ignore-all-space',
         '--ignore-submodules', '--no-color',
