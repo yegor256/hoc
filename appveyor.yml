@@ -11,8 +11,9 @@ install:
   - cmd: gem install pik
   - cmd: SET PATH=%PATH%;C:\bin
   - cmd: pik_install C:\bin
-  - cmd: pik install ruby 2.0.0
-  - cmd: pik use 200
+  - cmd: pik list
+  - cmd: pik install ruby 2.1.1
+  - cmd: pik use 2.1.1
   - cmd: ruby --version
 build_script:
   - bundle install
