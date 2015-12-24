@@ -13,7 +13,6 @@ Feature: Gem Package
       """
     When I run bash:
       """
-      set -e
       cd hoc
       gem build hoc.gemspec
       gem specification --ruby hoc-*.gem > ../spec.rb

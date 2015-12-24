@@ -7,7 +7,6 @@ Feature: Using .hoc config file
     Given It is Unix
     Given I run bash:
       """
-      set -e
       echo '--help' > .hoc
       """
     When I run bin/hoc with "-f int"

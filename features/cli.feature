@@ -11,7 +11,6 @@ Feature: Command Line Processing
     Given It is Unix
     Given I run bash:
       """
-      set -e
       git init .
       git config user.email test@teamed.io
       git config user.name test
@@ -28,7 +27,6 @@ Feature: Command Line Processing
     Given It is Unix
     Given I run bash:
       """
-      set -e
       rm -rf *
       git clone https://github.com/teamed/hoc.git .
       """
