@@ -8,7 +8,9 @@ branches:
     - gh-pages
 os: Windows Server 2012
 install:
-  - cmd: rvm install 2.1.1
+  - cmd: gem install pik
+  - cmd: pik install ruby 2.0.0
+  - cmd: pik use 200
   - cmd: ruby --version
 build_script:
   - bundle install
