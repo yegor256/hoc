@@ -38,7 +38,7 @@ Feature: Command Line Processing
     Given It is Windows
     Given I run bash:
       """
-      del /r *.*
+      del *.*
       git clone https://github.com/teamed/hoc.git .
       """
     When I run bin/hoc with "-f int"
