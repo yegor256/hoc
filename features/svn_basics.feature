@@ -22,6 +22,7 @@ Feature: SVN Repo Processing
     Then Exit code is zero
 
   Scenario: Real SVN repo
+    Given It is Unix
     Given I run bash:
       """
       svn co --non-interactive http://svn.apache.org/repos/asf/httpd/mod_ftp/tags/0.9.6

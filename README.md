@@ -26,6 +26,10 @@ Run it locally and read its output:
 $ hoc --help
 ```
 
+For Subversion statistics you must have
+[diffstat](http://sourceforge.net/projects/mingw/files/MSYS/Extension/diffstat/)
+installed.
+
 ## Questions?
 
 If you have any questions about the tool, or something doesn't work as expected,
