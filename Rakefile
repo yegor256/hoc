@@ -66,6 +66,7 @@ end
 require 'cucumber/rake/task'
 Cucumber::Rake::Task.new(:features) do |t|
   t.profile = 'travis'
+  t.cucumber_opts = '--format pretty'
 end
 Cucumber::Rake::Task.new(:'features:html') do |t|
   t.profile = 'html_report'
