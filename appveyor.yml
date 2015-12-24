@@ -16,3 +16,6 @@ build_script:
   - bundle install
 test_script:
   - rake clean test features:html rubocop
+cache:
+  - C:\Ruby200\lib\ruby\gems\2.0.0
+  - C:\Users\appveyor\.gem\ruby\2.0.0
