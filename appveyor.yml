@@ -15,4 +15,4 @@ install:
 build_script:
   - bundle install
 test_script:
-  - rake
+  - rake clean test features:html rubocop
