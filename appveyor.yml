@@ -16,7 +16,7 @@ build_script:
   - bundle update
   - bundle install
 test_script:
-  - rake clean test features:html rubocop
+  - rake
 cache:
   - C:\Ruby200\bin -> hoc.gemspec
   - C:\Ruby200\lib\ruby\gems\2.0.0 -> hoc.gemspec
