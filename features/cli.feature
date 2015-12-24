@@ -10,15 +10,15 @@ Feature: Command Line Processing
   Scenario: Simple git repo
     Given It is Unix
     Given I run bash:
-    """
-    set -e
-    git init .
-    git config user.email test@teamed.io
-    git config user.name test
-    echo 'hello, world!' > test.txt
-    git add test.txt
-    git commit -am test
-    """
+      """
+      set -e
+      git init .
+      git config user.email test@teamed.io
+      git config user.name test
+      echo 'hello, world!' > test.txt
+      git add test.txt
+      git commit -am test
+      """
     When I run bin/hoc with "-f int"
     Then Exit code is zero
     And Stdout contains "1"
@@ -26,10 +26,20 @@ Feature: Command Line Processing
   Scenario: Real git repo
     Given It is Unix
     Given I run bash:
-    """
-    set -e
-    rm -rf *
-    git clone https://github.com/teamed/hoc.git .
-    """
+      """
+      set -e
+      rm -rf *
+      git clone https://github.com/teamed/hoc.git .
+      """
+    When I run bin/hoc with "-f int"
+    Then Exit code is zero
+
+  Scenario: Real git repo in Windows
+    Given It is Windows
+    Given I run bash:
+      """
+      del /r *.*
+      git clone https://github.com/teamed/hoc.git .
+      """
     When I run bin/hoc with "-f int"
     Then Exit code is zero

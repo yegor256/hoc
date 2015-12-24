@@ -42,6 +42,10 @@ Given(/^It is Unix$/) do
   pending if Gem.win_platform?
 end
 
+Given(/^It is Windows$/) do
+  pending unless Gem.win_platform?
+end
+
 Given(/^I run bash:$/) do |bash|
   FileUtils.copy_entry(@cwd, File.join(@dir, 'hoc'))
   @stdout = `#{bash}`
