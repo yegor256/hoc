@@ -48,6 +48,13 @@ opts = Slop.parse(args, strict: true, help: true) do
     as: Array,
     argument: :required
   )
+  on(
+    'd',
+    'dir',
+    'Directory to scan',
+    default: '.',
+    argument: :required
+  )
 end
 
 if opts.help?
@@ -58,4 +65,4 @@ end
 Encoding.default_external = Encoding::UTF_8
 Encoding.default_internal = Encoding::UTF_8
 
-puts HOC::Base.new(Dir.pwd, opts).report
+puts HOC::Base.new(opts).report

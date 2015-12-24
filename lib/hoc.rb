@@ -32,10 +32,9 @@ module HOC
   # Code base abstraction
   class Base
     # Ctor.
-    # +dir+:: Directory to read from
     # +opts+:: Options
-    def initialize(dir, opts)
-      @dir = dir
+    def initialize(opts)
+      @dir = opts[:dir]
       fail "only \"int\" format is supported now" unless
         opts[:format].nil? || opts[:format] == 'int'
       @exclude = opts[:exclude].nil? ? [] : opts[:exclude]

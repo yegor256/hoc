@@ -39,9 +39,9 @@ Feature: Command Line Processing
     Given I run bash:
       """
       del /q *.*
-      git clone https://github.com/teamed/hoc.git .
+      git clone https://github.com/teamed/hoc.git
       """
     Then Exit code is zero
     And Stdout contains "yyyy"
-    When I run bin/hoc with "-f int"
+    When I run bin/hoc with "-f int -d hoc"
     Then Exit code is zero
