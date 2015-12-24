@@ -40,6 +40,7 @@ Feature: Command Line Processing
     Given It is Windows
     Given I run bash:
       """
+      echo "start it"
       del /q *.*
       echo "cloning Git repo for tests..."
       git clone https://github.com/teamed/hoc.git .
