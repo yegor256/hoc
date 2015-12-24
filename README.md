@@ -50,4 +50,3 @@ $ rake
 ```
 
 Make sure you're using Ruby 2.0+.
-
