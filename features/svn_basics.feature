@@ -20,13 +20,3 @@ Feature: SVN Repo Processing
       """
     When I run bin/hoc with "-f int -d repo"
     Then Exit code is zero
-
-  Scenario: Real SVN repo
-    Given It is Unix
-    Given I run bash:
-      """
-      svn co --non-interactive http://svn.apache.org/repos/asf/httpd/mod_ftp/tags/0.9.6
-      """
-    When I run bin/hoc with "-f int -d 0.9.6"
-    Then Exit code is zero
-
