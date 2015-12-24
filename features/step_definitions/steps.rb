@@ -51,6 +51,7 @@ Given(/^I run bash:$/) do |script|
   cmd = script.split("\n").join(' && ')
   @stdout = `#{cmd}`
   @exitstatus = $CHILD_STATUS.exitstatus
+  fail 'non-zero exit code' unless @exitstatus == 0
 end
 
 When(/^I run bin\/hoc with "([^"]*)"$/) do |arg|

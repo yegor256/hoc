@@ -32,7 +32,7 @@ module HOC
     end
 
     def hits
-      version = `svn --version --quiet`
+      version = `svn --non-interactive --version --quiet`
       fail "svn version #{version} is too old, upgrade it to 1.7+" unless
         Gem::Version.new(version) >= Gem::Version.new('1.7')
       fail 'diffstat is not installed' if

@@ -18,7 +18,14 @@ Feature: SVN Repo Processing
         svn ci -m 'third commit'
         svn up
       """
-    Then Exit code is zero
     When I run bin/hoc with "-f int -d repo"
+    Then Exit code is zero
+
+  Scenario: Real SVN repo
+    Given I run bash:
+      """
+      svn co --non-interactive http://svn.apache.org/repos/asf/httpd/mod_ftp/tags/0.9.6
+      """
+    When I run bin/hoc with "-f int -d 0.9.6"
     Then Exit code is zero
 

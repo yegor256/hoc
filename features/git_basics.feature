@@ -13,29 +13,15 @@ Feature: Git repo processing
       git add test.txt
       git commit -am test
       """
-    Then Exit code is zero
     When I run bin/hoc with "-f int"
     Then Exit code is zero
     And Stdout contains "1"
 
   Scenario: Real git repo
-    Given It is Unix
     Given I run bash:
       """
-      rm -rf *
-      git clone https://github.com/teamed/hoc.git .
+      git clone https://github.com/teamed/hoc.git hoc-repo
       """
-    Then Exit code is zero
-    When I run bin/hoc with "-f int"
+    When I run bin/hoc with "-f int -d hoc-repo"
     Then Exit code is zero
 
-  Scenario: Real git repo in Windows
-    Given It is Windows
-    Given I run bash:
-      """
-      del /q *.*
-      git clone https://github.com/teamed/hoc.git hoc-win
-      """
-    Then Exit code is zero
-    When I run bin/hoc with "-f int -d hoc-win"
-    Then Exit code is zero
