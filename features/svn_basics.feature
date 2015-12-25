@@ -6,17 +6,25 @@ Feature: SVN Repo Processing
     Given It is Unix
     Given I run bash:
       """
-        svnadmin create base
-        svn co file://$(pwd)/base repo
-        cd repo
-        echo 'Hello, world!' > test.txt
-        svn add test.txt
-        svn ci -m 'first commit'
-        echo 'Bye!' > test.txt
-        svn ci -m 'second commit'
-        svn rm test.txt
-        svn ci -m 'third commit'
-        svn up
+      svnadmin create base
+      svn co file://$(pwd)/base repo
+      cd repo
+      echo 'Hello, world!' > test.txt
+      svn add test.txt
+      svn ci -m 'first commit'
+      echo 'Bye!' > test.txt
+      svn ci -m 'second commit'
+      svn rm test.txt
+      svn ci -m 'third commit'
+      svn up
       """
     When I run bin/hoc with "-f int -d repo"
+    Then Exit code is zero
+
+  Scenario: Real SVN repo
+    Given I run bash:
+      """
+      svn co https://svn.apache.org/repos/asf/maven/skins/tags/maven-skins-9/src/site maven
+      """
+    When I run bin/hoc with "-f int -d maven"
     Then Exit code is zero

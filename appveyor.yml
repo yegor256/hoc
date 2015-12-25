@@ -13,6 +13,7 @@ install:
   - cmd: ruby --version
   - cmd: svn --version
   - cmd: git --version
+  - cmd: diffstat --version
 build_script:
   - bundle update
   - bundle install
