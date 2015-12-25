@@ -24,7 +24,7 @@ Feature: SVN Repo Processing
   Scenario: Real SVN repo
     Given I run bash:
       """
-      svn co https://svn.apache.org/repos/asf/maven/skins/tags/maven-skins-9/src/site maven
+      svn co https://svn.apache.org/repos/asf/maven/skins/tags/maven-skins-9/src/site
       """
-    When I run bin/hoc with "-f int -d maven"
+    When I run bin/hoc with "-f int -d site"
     Then Exit code is zero
