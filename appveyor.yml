@@ -8,8 +8,8 @@ branches:
     - gh-pages
 os: Windows Server 2012
 install:
-  - cmd: choco install base-devel
-  - cmd: SET PATH=C:\Ruby200\bin;%PATH%
+  - cmd: SET PATH=C:\Ruby200\bin;C:\msys64\usr\bin;%PATH%
+  - cmd: bash --login -c "pacman -S --needed --noconfirm base-devel"
   - cmd: ruby --version
   - cmd: svn --version
   - cmd: git --version
