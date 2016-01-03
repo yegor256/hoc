@@ -1,7 +1,7 @@
 # encoding: utf-8
 #
-# Copyright (c) 2014 Teamed.io
-# Copyright (c) 2014 Yegor Bugayenko
+# Copyright (c) 2014-2016 Teamed.io
+# Copyright (c) 2014-2016 Yegor Bugayenko
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the 'Software'), to deal
@@ -27,7 +27,7 @@ require 'tmpdir'
 
 # Svn test.
 # Author:: Yegor Bugayenko (yegor@teamed.io)
-# Copyright:: Copyright (c) 2014 Yegor Bugayenko
+# Copyright:: Copyright (c) 2014-2016 Yegor Bugayenko
 # License:: MIT
 class TestSvn < Minitest::Test
   def test_parsing
