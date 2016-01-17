@@ -1,5 +1,6 @@
 [![Made By Teamed.io](http://img.teamed.io/btn.svg)](http://www.teamed.io)
 [![DevOps By Rultor.com](http://www.rultor.com/b/teamed/hoc)](http://www.rultor.com/p/teamed/hoc)
+[![We recommend RubyMine](http://img.teamed.io/rubymine-recommend.svg)](https://www.jetbrains.com/ruby/)
 
 [![Build Status](https://travis-ci.org/teamed/hoc.svg)](https://travis-ci.org/teamed/hoc)
 [![Build status](https://ci.appveyor.com/api/projects/status/yww1brb4xy80jh11?svg=true)](https://ci.appveyor.com/project/yegor256/hoc)
