@@ -1,6 +1,6 @@
 assets:
-  rubygems.yml: "yegor256/home#assets/rubygems.yml"
-  s3cfg: "yegor256/home#assets/s3cfg"
+  rubygems.yml: zerocracy/home#assets/rubygems.yml
+  s3cfg: zerocracy/home#assets/s3cfg
 
 install: |
   sudo gem install --no-ri --no-rdoc pdd
@@ -13,6 +13,7 @@ install: |
 
 release:
   script: |
+    pdd --verbose --file=/dev/null
     sudo bundle install
     rake
     rm -rf *.gem
@@ -21,5 +22,3 @@ release:
     gem build hoc.gemspec
     chmod 0600 ../rubygems.yml
     gem push *.gem --config-file ../rubygems.yml
-    pdd --source=$(pwd) --verbose --file=hoc.xml
-    s3cmd --no-progress put hoc.xml --config=../s3cfg s3://pdd.teamed.io/hoc.xml
