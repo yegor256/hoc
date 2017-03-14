@@ -6,12 +6,12 @@ Feature: Git repo processing
     Given It is Unix
     Given I run bash:
       """
-      git init .
+      git init --quiet .
       git config user.email test@teamed.io
       git config user.name test
       echo 'hello, world!' > test.txt
       git add test.txt
-      git commit -am test
+      git commit -qam test
       """
     When I run bin/hoc with "-f int"
     Then Exit code is zero
@@ -20,7 +20,7 @@ Feature: Git repo processing
   Scenario: Real git repo
     Given I run bash:
       """
-      git clone https://github.com/teamed/hoc.git hoc-repo
+      git clone --quiet https://github.com/teamed/hoc.git hoc-repo
       """
     When I run bin/hoc with "-f int -d hoc-repo"
     Then Exit code is zero

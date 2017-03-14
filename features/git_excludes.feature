@@ -6,14 +6,14 @@ Feature: Exclude dirs from Git counting
     Given It is Unix
     Given I run bash:
       """
-      git init .
+      git init --quiet .
       git config user.email test@teamed.io
       git config user.name test
       mkdir x
       echo 'hello, world!' > x/invalid.txt
       echo 'hello, world!' > valid.txt
       git add .
-      git commit -am test
+      git commit -qam test
       """
     When I run bin/hoc with "-e x/** -e a.txt"
     Then Exit code is zero

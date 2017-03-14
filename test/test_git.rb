@@ -36,16 +36,16 @@ class TestGit < Minitest::Test
       fail unless system("
         set -e
         cd '#{dir}'
-        git init .
+        git init --quiet .
         git config user.email test@teamed.io
         git config user.name test
         echo 'hello, world!' > test.txt
         git add test.txt
-        git commit -am 'add line'
+        git commit -qam 'add line'
         echo 'good bye, world!' > test.txt
-        git commit -am 'modify line'
+        git commit -qam 'modify line'
         rm test.txt
-        git commit -am 'delete line'
+        git commit -qam 'delete line'
       ")
       hits = HOC::Git.new(dir, []).hits
       assert_equal 1, hits.size
@@ -59,7 +59,7 @@ class TestGit < Minitest::Test
       fail unless system("
         set -e
         cd '#{dir}'
-        git init .
+        git init --quiet .
       ")
       hits = HOC::Git.new(dir, []).hits
       assert_equal 1, hits.size
@@ -73,15 +73,15 @@ class TestGit < Minitest::Test
       fail unless system("
         set -e
         cd '#{dir}'
-        git init .
+        git init --quiet .
         git config user.email test@teamed.io
         git config user.name test
         dd if=/dev/urandom of=test.dat bs=1 count=65536
         git add test.dat
-        git commit -am 'binary file'
+        git commit -qam 'binary file'
         dd if=/dev/urandom of=test.dat bs=1 count=65536
         git add test.dat
-        git commit -am 'binary file modified'
+        git commit -qam 'binary file modified'
       ")
       hits = HOC::Git.new(dir, []).hits
       assert_equal 1, hits.size
