@@ -46,12 +46,12 @@ Gem::Specification.new do |s|
   s.rdoc_options = ['--charset=UTF-8']
   s.extra_rdoc_files = %w(README.md LICENSE.txt)
   s.add_runtime_dependency 'slop', '3.6.0'
-  s.add_development_dependency 'rake', '10.4.2'
+  s.add_development_dependency 'rake', '12.0.0'
   s.add_development_dependency 'coveralls', '0.7'
   s.add_development_dependency 'rdoc', '3.11'
   s.add_development_dependency 'cucumber', '1.3.11'
   s.add_development_dependency 'minitest', '5.4'
-  s.add_development_dependency 'rubocop', '0.35.1'
-  s.add_development_dependency 'rubocop-rspec', '1.1'
+  s.add_development_dependency 'rubocop', '0.41.2'
+  s.add_development_dependency 'rubocop-rspec', '1.5.1'
   s.add_development_dependency 'rspec-rails', '2.13'
 end
