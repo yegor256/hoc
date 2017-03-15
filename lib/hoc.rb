@@ -35,7 +35,7 @@ module HOC
     # +opts+:: Options
     def initialize(opts)
       @dir = opts[:dir]
-      fail "only \"int\" format is supported now" unless
+      raise 'only "int" format is supported now' unless
         opts[:format].nil? || opts[:format] == 'int'
       @exclude = opts[:exclude].nil? ? [] : opts[:exclude]
     end
@@ -48,7 +48,7 @@ module HOC
       elsif File.exist?(File.join(@dir, '.svn'))
         repo = Svn.new(@dir)
       else
-        fail 'only Git repositories supported now'
+        raise 'only Git repositories supported now'
       end
       repo.hits.map(&:total).inject(:+)
     end

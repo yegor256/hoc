@@ -51,7 +51,7 @@ Given(/^I run bash:$/) do |script|
   cmd = script.split("\n").join(' && ')
   @stdout = `#{cmd}`
   @exitstatus = $CHILD_STATUS.exitstatus
-  fail 'non-zero exit code' unless @exitstatus == 0
+  raise 'non-zero exit code' unless @exitstatus == 0
 end
 
 When(%r{^I run bin/hoc with "([^"]*)"$}) do |arg|
@@ -62,12 +62,12 @@ end
 
 Then(/^Stdout contains "([^"]*)"$/) do |txt|
   unless @stdout.include?(txt)
-    fail "STDOUT doesn't contain '#{txt}':\n\n--------\n#{@stdout}\n--------\n"
+    raise "STDOUT doesn't contain '#{txt}':\n\n--------\n#{@stdout}\n--------\n"
   end
 end
 
 Then(/^Exit code is zero$/) do
-  fail "Non-zero exit code #{@exitstatus}" unless @exitstatus == 0
+  raise "Non-zero exit code #{@exitstatus}" unless @exitstatus == 0
 end
 
 Given(/^I have a "([^"]*)" file with content:$/) do |file, text|

@@ -9,7 +9,7 @@ Feature: Gem Package
       #!/usr/bin/env ruby
       require 'rubygems'
       spec = Gem::Specification::load('./spec.rb')
-      fail 'no executables' if spec.executables.empty?
+      raise 'no executables' if spec.executables.empty?
       """
     When I run bash:
       """

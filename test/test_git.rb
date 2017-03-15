@@ -33,7 +33,7 @@ class TestGit < Minitest::Test
   def test_parsing
     skip if Gem.win_platform?
     Dir.mktmpdir 'test' do |dir|
-      fail unless system("
+      raise unless system("
         set -e
         cd '#{dir}'
         git init --quiet .
@@ -56,7 +56,7 @@ class TestGit < Minitest::Test
   def test_parsing_with_empty_git
     skip if Gem.win_platform?
     Dir.mktmpdir 'test' do |dir|
-      fail unless system("
+      raise unless system("
         set -e
         cd '#{dir}'
         git init --quiet .
@@ -70,7 +70,7 @@ class TestGit < Minitest::Test
   def test_ignores_binary_files
     skip if Gem.win_platform?
     Dir.mktmpdir 'test' do |dir|
-      fail unless system("
+      raise unless system("
         set -e
         cd '#{dir}'
         git init --quiet .

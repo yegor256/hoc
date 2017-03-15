@@ -34,7 +34,7 @@ class TestHOC < Minitest::Test
   def test_basic_git
     skip if Gem.win_platform?
     Dir.mktmpdir 'test' do |dir|
-      fail unless system("
+      raise unless system("
         set -e
         cd '#{dir}'
         git init .
@@ -51,7 +51,7 @@ class TestHOC < Minitest::Test
   def test_basic_svn
     skip if Gem.win_platform?
     Dir.mktmpdir 'test' do |dir|
-      fail unless system("
+      raise unless system("
         set -e
         cd '#{dir}'
         svnadmin create base

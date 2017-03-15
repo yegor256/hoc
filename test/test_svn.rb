@@ -33,7 +33,7 @@ class TestSvn < Minitest::Test
   def test_parsing
     skip if Gem.win_platform?
     Dir.mktmpdir 'test' do |dir|
-      fail unless system("
+      raise unless system("
         set -e
         cd '#{dir}'
         svnadmin create base
@@ -57,7 +57,7 @@ class TestSvn < Minitest::Test
   def test_parsing_empty_repo
     skip('fails now')
     Dir.mktmpdir 'test' do |dir|
-      fail unless system("
+      raise unless system("
         set -e
         cd '#{dir}'
         svnadmin create base

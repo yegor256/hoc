@@ -29,8 +29,8 @@ require 'slop'
 require 'hoc/version'
 
 args = []
-args.push(*File.read('.hoc').split(/\s+/).map(&:strip)) if File.exist?('.hoc')
-args.push(*ARGV)
+args.concat(*File.read('.hoc').split(/\s+/).map(&:strip)) if File.exist?('.hoc')
+args.concat(*ARGV)
 
 opts = Slop.parse(args, strict: true, help: true) do
   banner "Usage (#{HOC::VERSION}): hoc [options]"
