@@ -1,2 +1,7 @@
+AllCops:
+  DisplayCopNames: true
+
 MethodLength:
+  Max: 30
+Metrics/AbcSize:
   Max: 30

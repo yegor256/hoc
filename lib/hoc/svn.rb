@@ -42,7 +42,7 @@ module HOC
         Hits.new(
           Time.now,
           log.split(/\n/).last.split(/[^\d]/)
-            .map { |s| s.to_i }.select { |x| x > 0 }
+            .map(&:to_i).select { |x| x > 0 }
             .drop(1).inject(:+)
         )
       ]

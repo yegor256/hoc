@@ -50,7 +50,7 @@ module HOC
       else
         fail 'only Git repositories supported now'
       end
-      repo.hits.map { |h| h.total }.inject(:+)
+      repo.hits.map(&:total).inject(:+)
     end
   end
 end

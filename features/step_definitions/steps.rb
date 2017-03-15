@@ -54,7 +54,7 @@ Given(/^I run bash:$/) do |script|
   fail 'non-zero exit code' unless @exitstatus == 0
 end
 
-When(/^I run bin\/hoc with "([^"]*)"$/) do |arg|
+When(%r{^I run bin/hoc with "([^"]*)"$}) do |arg|
   home = File.join(File.dirname(__FILE__), '../..')
   @stdout = `ruby -I#{home}/lib #{home}/bin/hoc #{arg}`
   @exitstatus = $CHILD_STATUS.exitstatus

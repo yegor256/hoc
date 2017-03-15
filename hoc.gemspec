@@ -41,8 +41,8 @@ Gem::Specification.new do |s|
   s.email = 'yegor@teamed.io'
   s.homepage = 'http://github.com/teamed/hoc'
   s.files = `git ls-files`.split($RS)
-  s.executables = s.files.grep(/^bin\//) { |f| File.basename(f) }
-  s.test_files = s.files.grep(/^(test|spec|features)\//)
+  s.executables = s.files.grep(%r{^bin/}) { |f| File.basename(f) }
+  s.test_files = s.files.grep(%r{^(test|spec|features)/})
   s.rdoc_options = ['--charset=UTF-8']
   s.extra_rdoc_files = %w(README.md LICENSE.txt)
   s.add_runtime_dependency 'slop', '3.6.0'
@@ -51,7 +51,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rdoc', '3.11'
   s.add_development_dependency 'cucumber', '1.3.11'
   s.add_development_dependency 'minitest', '5.4'
-  s.add_development_dependency 'rubocop', '0.24.1'
+  s.add_development_dependency 'rubocop', '0.35.1'
   s.add_development_dependency 'rubocop-rspec', '1.1'
   s.add_development_dependency 'rspec-rails', '2.13'
 end
