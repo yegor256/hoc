@@ -1,14 +1,13 @@
 [![Made By Teamed.io](http://img.teamed.io/btn.svg)](http://www.teamed.io)
-[![DevOps By Rultor.com](http://www.rultor.com/b/teamed/hoc)](http://www.rultor.com/p/teamed/hoc)
+[![DevOps By Rultor.com](http://www.rultor.com/b/yegor256/hoc)](http://www.rultor.com/p/yegor256/hoc)
 [![We recommend RubyMine](http://img.teamed.io/rubymine-recommend.svg)](https://www.jetbrains.com/ruby/)
 
-[![Build Status](https://travis-ci.org/teamed/hoc.svg)](https://travis-ci.org/teamed/hoc)
+[![Build Status](https://travis-ci.org/yegor256/hoc.svg)](https://travis-ci.org/yegor256/hoc)
 [![Build status](https://ci.appveyor.com/api/projects/status/yww1brb4xy80jh11?svg=true)](https://ci.appveyor.com/project/yegor256/hoc)
-
 [![Gem Version](https://badge.fury.io/rb/hoc.svg)](http://badge.fury.io/rb/hoc)
-[![Dependency Status](https://gemnasium.com/teamed/hoc.svg)](https://gemnasium.com/teamed/hoc)
-[![Code Climate](http://img.shields.io/codeclimate/github/teamed/hoc.svg)](https://codeclimate.com/github/teamed/hoc)
-[![Coverage Status](https://coveralls.io/repos/teamed/hoc/badge.svg)](https://coveralls.io/r/teamed/hoc)
+[![Dependency Status](https://gemnasium.com/yegor256/hoc.svg)](https://gemnasium.com/yegor256/hoc)
+[![Code Climate](http://img.shields.io/codeclimate/github/yegor256/hoc.svg)](https://codeclimate.com/github/yegor256/hoc)
+[![Coverage Status](https://coveralls.io/repos/yegor256/hoc/badge.svg)](https://coveralls.io/r/yegor256/hoc)
 
 It is a command line tool to calculate Hits-of-Code metric
 in a source code repository (at the moment we support Git 2+ and Subversion 1.7+).
@@ -34,7 +33,7 @@ installed.
 ## Questions?
 
 If you have any questions about the tool, or something doesn't work as expected,
-please [submit an issue here](https://github.com/teamed/hoc/issues/new).
+please [submit an issue here](https://github.com/yegor256/hoc/issues/new).
 
 ## How to contribute?
 
