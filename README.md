@@ -7,7 +7,7 @@
 [![Gem Version](https://badge.fury.io/rb/hoc.svg)](http://badge.fury.io/rb/hoc)
 [![Dependency Status](https://gemnasium.com/yegor256/hoc.svg)](https://gemnasium.com/yegor256/hoc)
 [![Code Climate](http://img.shields.io/codeclimate/github/yegor256/hoc.svg)](https://codeclimate.com/github/yegor256/hoc)
-[![Coverage Status](https://coveralls.io/repos/yegor256/hoc/badge.svg)](https://coveralls.io/r/yegor256/hoc)
+[![Test Coverage](https://img.shields.io/codecov/c/github/yegor256/hoc.svg)](https://codecov.io/github/yegor256/hoc?branch=master)
 
 It is a command line tool to calculate Hits-of-Code metric
 in a source code repository (at the moment we support Git 2+ and Subversion 1.7+).
