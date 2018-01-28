@@ -37,8 +37,8 @@ module HOC
       @dir = opts[:dir]
       raise 'only "int" format is supported now' unless
         opts[:format].nil? || opts[:format] == 'int'
-      @exclude = opts[:exclude].nil? ? [] : opts[:exclude]
-      @author = opts[:author].nil? ? '' : opts[:author]
+      @exclude = opts[:exclude] || []
+      @author = opts[:author] || ''
     end
 
     # Generate report.
