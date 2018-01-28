@@ -47,6 +47,12 @@ opts = Slop.parse(args, strict: true, help: true) do |o|
     'Glob pattern to exclude files/dirs, e.g. "vendor/**"'
   )
   o.string(
+    '-a',
+    '--author',
+    'Filter results by given author',
+    default: ''
+  )
+  o.string(
     '-d',
     '--dir',
     'Directory to scan',

@@ -44,7 +44,7 @@ class TestHOC < Minitest::Test
         git add test.txt
         git commit -am test
       ")
-      assert HOC::Base.new(dir: '.', exclude: ['a/**']).report > 0
+      assert HOC::Base.new(dir: '.', exclude: ['a/**'], author: '').report > 0
     end
   end
 

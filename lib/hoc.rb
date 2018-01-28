@@ -38,13 +38,14 @@ module HOC
       raise 'only "int" format is supported now' unless
         opts[:format].nil? || opts[:format] == 'int'
       @exclude = opts[:exclude].nil? ? [] : opts[:exclude]
+      @author = opts[:author].nil? ? '' : opts[:author]
     end
 
     # Generate report.
     def report
       repo = nil
       if File.exist?(File.join(@dir, '.git'))
-        repo = Git.new(@dir, @exclude)
+        repo = Git.new(@dir, @exclude, @author)
       elsif File.exist?(File.join(@dir, '.svn'))
         repo = Svn.new(@dir)
       else
