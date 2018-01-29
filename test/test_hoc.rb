@@ -1,7 +1,7 @@
 # encoding: utf-8
 #
-# Copyright (c) 2014-2017 Teamed.io
-# Copyright (c) 2014-2017 Yegor Bugayenko
+# Copyright (c) 2014-2018 Teamed.io
+# Copyright (c) 2014-2018 Yegor Bugayenko
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the 'Software'), to deal
@@ -28,7 +28,7 @@ require 'slop'
 
 # HOC main module test.
 # Author:: Yegor Bugayenko (yegor256@gmail.com)
-# Copyright:: Copyright (c) 2014-2017 Yegor Bugayenko
+# Copyright:: Copyright (c) 2014-2018 Yegor Bugayenko
 # License:: MIT
 class TestHOC < Minitest::Test
   def test_basic_git
@@ -44,7 +44,7 @@ class TestHOC < Minitest::Test
         git add test.txt
         git commit -am test
       ")
-      assert HOC::Base.new(dir: '.', exclude: ['a/**']).report > 0
+      assert HOC::Base.new(dir: '.', exclude: ['a/**'], author: '').report > 0
     end
   end
 

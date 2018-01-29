@@ -1,7 +1,7 @@
 # encoding: utf-8
 #
-# Copyright (c) 2014-2017 Teamed.io
-# Copyright (c) 2014-2017 Yegor Bugayenko
+# Copyright (c) 2014-2018 Teamed.io
+# Copyright (c) 2014-2018 Yegor Bugayenko
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the 'Software'), to deal
@@ -27,7 +27,7 @@ require 'tmpdir'
 
 # Git test.
 # Author:: Yegor Bugayenko (yegor256@gmail.com)
-# Copyright:: Copyright (c) 2014-2017 Yegor Bugayenko
+# Copyright:: Copyright (c) 2014-2018 Yegor Bugayenko
 # License:: MIT
 class TestGit < Minitest::Test
   def test_parsing
@@ -47,7 +47,7 @@ class TestGit < Minitest::Test
         rm test.txt
         git commit -qam 'delete line'
       ")
-      hits = HOC::Git.new(dir, []).hits
+      hits = HOC::Git.new(dir, [], '').hits
       assert_equal 1, hits.size
       assert_equal 4, hits[0].total
     end
@@ -61,7 +61,7 @@ class TestGit < Minitest::Test
         cd '#{dir}'
         git init --quiet .
       ")
-      hits = HOC::Git.new(dir, []).hits
+      hits = HOC::Git.new(dir, [], '').hits
       assert_equal 1, hits.size
       assert_equal 0, hits[0].total
     end
@@ -83,7 +83,7 @@ class TestGit < Minitest::Test
         git add test.dat
         git commit -qam 'binary file modified'
       ")
-      hits = HOC::Git.new(dir, []).hits
+      hits = HOC::Git.new(dir, [], '').hits
       assert_equal 1, hits.size
       assert_equal 0, hits[0].total
     end

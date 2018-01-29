@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 # encoding: utf-8
 #
-# Copyright (c) 2014-2017 Teamed.io
-# Copyright (c) 2014-2017 Yegor Bugayenko
+# Copyright (c) 2014-2018 Teamed.io
+# Copyright (c) 2014-2018 Yegor Bugayenko
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the 'Software'), to deal
@@ -45,6 +45,12 @@ opts = Slop.parse(args, strict: true, help: true) do |o|
     '-e',
     '--exclude',
     'Glob pattern to exclude files/dirs, e.g. "vendor/**"'
+  )
+  o.string(
+    '-a',
+    '--author',
+    'Filter results by given author',
+    default: ''
   )
   o.string(
     '-d',

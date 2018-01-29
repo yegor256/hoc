@@ -1,7 +1,7 @@
 # encoding: utf-8
 #
-# Copyright (c) 2014-2017 Teamed.io
-# Copyright (c) 2014-2017 Yegor Bugayenko
+# Copyright (c) 2014-2018 Teamed.io
+# Copyright (c) 2014-2018 Yegor Bugayenko
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the 'Software'), to deal
@@ -26,7 +26,7 @@ require 'hoc/svn'
 
 # HOC main module.
 # Author:: Yegor Bugayenko (yegor256@gmail.com)
-# Copyright:: Copyright (c) 2014-2017 Yegor Bugayenko
+# Copyright:: Copyright (c) 2014-2018 Yegor Bugayenko
 # License:: MIT
 module HOC
   # Code base abstraction
@@ -37,14 +37,15 @@ module HOC
       @dir = opts[:dir]
       raise 'only "int" format is supported now' unless
         opts[:format].nil? || opts[:format] == 'int'
-      @exclude = opts[:exclude].nil? ? [] : opts[:exclude]
+      @exclude = opts[:exclude] || []
+      @author = opts[:author] || ''
     end
 
     # Generate report.
     def report
       repo = nil
       if File.exist?(File.join(@dir, '.git'))
-        repo = Git.new(@dir, @exclude)
+        repo = Git.new(@dir, @exclude, @author)
       elsif File.exist?(File.join(@dir, '.svn'))
         repo = Svn.new(@dir)
       else
