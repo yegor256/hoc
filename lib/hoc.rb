@@ -35,10 +35,9 @@ module HOC
     # +opts+:: Options
     def initialize(opts)
       @dir = opts[:dir]
-      raise 'only "int" format is supported now' unless
-        opts[:format].nil? || opts[:format] == 'int'
       @exclude = opts[:exclude] || []
       @author = opts[:author] || ''
+      @format = opts[:format] || 'int'
     end
 
     # Generate report.
@@ -49,9 +48,21 @@ module HOC
       elsif File.exist?(File.join(@dir, '.svn'))
         repo = Svn.new(@dir)
       else
-        raise 'only Git repositories supported now'
+        raise 'Only Git repositories supported now'
       end
-      repo.hits.map(&:total).inject(:+)
+      count = repo.hits.map(&:total).inject(:+)
+      case @format
+      when 'xml'
+        "<hoc><total>#{count}</total></hoc>"
+      when 'json'
+        "{\"total\":#{count}}"
+      when 'text'
+        "Total Hits-of-Code: #{count}"
+      when 'int'
+        count
+      else
+        raise 'Only "text|xml|json|int" formats are supported now'
+      end
     end
   end
 end
