@@ -36,18 +36,17 @@ installed.
 If you have any questions about the tool, or something doesn't work as expected,
 please [submit an issue here](https://github.com/yegor256/hoc/issues/new).
 
-## How to contribute?
+# How to contribute
 
-Fork the repository, make changes, submit a pull request.
-We promise to review your changes same day and apply to
-the `master` branch, if they look correct.
-
-Please run Rake build before submitting a pull request (make sure you
-have [bundler](http://bundler.io/) installed):
+Read [these guidelines](https://www.yegor256.com/2014/04/15/github-guidelines.html).
+Make sure you build is green before you contribute
+your pull request. You will need to have [Ruby](https://www.ruby-lang.org/en/) 2.3+ and
+[Bundler](https://bundler.io/) installed. Then:
 
 ```
-$ bundle install
+$ bundle update
 $ rake
 ```
 
-Make sure you're using Ruby 2.0+.
+If it's clean and you don't see any error messages, submit your pull request.
+
