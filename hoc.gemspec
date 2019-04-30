@@ -48,7 +48,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'slop', '~>4.4.1'
   s.add_development_dependency 'rake', '12.0.0'
   s.add_development_dependency 'codecov', '0.1.10'
-  s.add_development_dependency 'rdoc', '3.11'
+  s.add_development_dependency 'rdoc', '3.12.1'
   s.add_development_dependency 'cucumber', '1.3.11'
   s.add_development_dependency 'minitest', '5.4'
   s.add_development_dependency 'rubocop', '0.61.0'
