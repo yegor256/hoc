@@ -6,8 +6,7 @@
 [![Build Status](https://travis-ci.org/yegor256/hoc.svg)](https://travis-ci.org/yegor256/hoc)
 [![Build status](https://ci.appveyor.com/api/projects/status/yww1brb4xy80jh11?svg=true)](https://ci.appveyor.com/project/yegor256/hoc)
 [![Gem Version](https://badge.fury.io/rb/hoc.svg)](http://badge.fury.io/rb/hoc)
-[![Dependency Status](https://gemnasium.com/yegor256/hoc.svg)](https://gemnasium.com/yegor256/hoc)
-[![Code Climate](http://img.shields.io/codeclimate/github/yegor256/hoc.svg)](https://codeclimate.com/github/yegor256/hoc)
+[![Maintainability](https://api.codeclimate.com/v1/badges/4302208cf578d101143e/maintainability)](https://codeclimate.com/github/yegor256/hoc/maintainability)
 [![Test Coverage](https://img.shields.io/codecov/c/github/yegor256/hoc.svg)](https://codecov.io/github/yegor256/hoc?branch=master)
 
 It is a command line tool to calculate Hits-of-Code metric
@@ -31,12 +30,7 @@ For Subversion statistics you must have
 [diffstat](http://sourceforge.net/projects/mingw/files/MSYS/Extension/diffstat/)
 installed.
 
-## Questions?
-
-If you have any questions about the tool, or something doesn't work as expected,
-please [submit an issue here](https://github.com/yegor256/hoc/issues/new).
-
-# How to contribute
+## How to contribute
 
 Read [these guidelines](https://www.yegor256.com/2014/04/15/github-guidelines.html).
 Make sure you build is green before you contribute
@@ -45,7 +39,7 @@ your pull request. You will need to have [Ruby](https://www.ruby-lang.org/en/) 2
 
 ```
 $ bundle update
-$ rake
+$ bundle exec rake
 ```
 
 If it's clean and you don't see any error messages, submit your pull request.
