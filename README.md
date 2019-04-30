@@ -9,10 +9,16 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/4302208cf578d101143e/maintainability)](https://codeclimate.com/github/yegor256/hoc/maintainability)
 [![Test Coverage](https://img.shields.io/codecov/c/github/yegor256/hoc.svg)](https://codecov.io/github/yegor256/hoc?branch=master)
 
+[![Hits-of-Code](https://hitsofcode.com/github/yegor256/hoc)](https://hitsofcode.com/view/github/yegor256/hoc)
+
 It is a command line tool to calculate Hits-of-Code metric
 in a source code repository (at the moment we support Git 2+ and Subversion 1.7+).
 You can read more about Hits-of-Code metric in this blog post:
 [Hits-of-Code Instead of SLoC](http://www.yegor256.com/2014/11/14/hits-of-code.html).
+
+You can also use [hitsofcode.com](https://hitsofcode.com) by
+[Valentin Brandl](https://www.vbrandl.net/), if you want to have a badge
+in your repo.
 
 Install it first:
 
