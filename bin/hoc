@@ -58,6 +58,18 @@ opts = Slop.parse(args, strict: true, help: true) do |o|
     'Directory to scan',
     default: '.'
   )
+  o.string(
+    '-s',
+    '--since',
+    'Set the start date of hoc (YYYY-MM-DD)',
+    default: '2000-01-01'
+  )
+  o.string(
+    '-b',
+    '--before',
+    'Set the end date of hoc (YYYY-MM-DD)',
+    default: Time.now.strftime("%Y-%m-%d")
+  )
 end
 
 if opts.help?
