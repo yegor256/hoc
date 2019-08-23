@@ -68,7 +68,7 @@ opts = Slop.parse(args, strict: true, help: true) do |o|
     '-b',
     '--before',
     'Set the end date of hoc (YYYY-MM-DD)',
-    default: Time.now.strftime("%Y-%m-%d")
+    default: Time.now.strftime('%Y-%m-%d')
   )
 end
 

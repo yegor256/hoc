@@ -39,7 +39,7 @@ module HOC
       @author = opts[:author] || ''
       @format = opts[:format] || 'int'
       @since = opts[:since] || '2000-01-01'
-      @before = opts[:before] || Time.now.strftime("%Y-%m-%d")
+      @before = opts[:before] || Time.now.strftime('%Y-%m-%d')
     end
 
     # Generate report.
