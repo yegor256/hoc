@@ -45,7 +45,7 @@ Gem::Specification.new do |s|
   s.test_files = s.files.grep(%r{^(test|spec|features)/})
   s.rdoc_options = ['--charset=UTF-8']
   s.extra_rdoc_files = %w(README.md LICENSE.txt)
-  s.add_runtime_dependency 'slop', '~>4.4.1'
+  s.add_runtime_dependency 'slop', '>=4.4.1'
   s.add_development_dependency 'rake', '12.0.0'
   s.add_development_dependency 'codecov', '0.1.10'
   s.add_development_dependency 'rdoc', '3.12.1'
