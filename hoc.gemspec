@@ -1,6 +1,3 @@
-# encoding: utf-8
-#
-# Copyright (c) 2014-2019 Teamed.io
 # Copyright (c) 2014-2019 Yegor Bugayenko
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -21,7 +18,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-lib = File.expand_path('../lib', __FILE__)
+lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'hoc/version'
 
@@ -31,7 +28,7 @@ Gem::Specification.new do |s|
     s.required_rubygems_version = Gem::Requirement.new('>= 0')
   end
   s.rubygems_version = '2.2.2'
-  s.required_ruby_version = '>= 1.9.3'
+  s.required_ruby_version = '>= 2.2.2'
   s.name = 'hoc'
   s.version = HOC::VERSION
   s.license = 'MIT'
@@ -44,14 +41,14 @@ Gem::Specification.new do |s|
   s.executables = s.files.grep(%r{^bin/}) { |f| File.basename(f) }
   s.test_files = s.files.grep(%r{^(test|spec|features)/})
   s.rdoc_options = ['--charset=UTF-8']
-  s.extra_rdoc_files = %w(README.md LICENSE.txt)
+  s.extra_rdoc_files = %w[README.md LICENSE.txt]
   s.add_runtime_dependency 'slop', '~>4.4'
-  s.add_development_dependency 'rake', '12.0.0'
   s.add_development_dependency 'codecov', '0.1.10'
-  s.add_development_dependency 'rdoc', '3.12.1'
   s.add_development_dependency 'cucumber', '1.3.11'
   s.add_development_dependency 'minitest', '5.4'
+  s.add_development_dependency 'rake', '12.0.0'
+  s.add_development_dependency 'rdoc', '3.12.1'
+  s.add_development_dependency 'rspec-rails', '2.13'
   s.add_development_dependency 'rubocop', '0.61.0'
   s.add_development_dependency 'rubocop-rspec', '1.5.1'
-  s.add_development_dependency 'rspec-rails', '2.13'
 end

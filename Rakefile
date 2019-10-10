@@ -1,6 +1,3 @@
-# encoding: utf-8
-#
-# Copyright (c) 2014-2019 Teamed.io
 # Copyright (c) 2014-2019 Yegor Bugayenko
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -33,7 +30,7 @@ def version
   Gem::Specification.load(Dir['*.gemspec'].first).version
 end
 
-task default: [:clean, :test, :features, :rubocop, :copyright]
+task default: %i[clean test features rubocop copyright]
 
 task :clean do
   rm_rf 'coverage'

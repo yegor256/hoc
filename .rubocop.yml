@@ -1,5 +1,6 @@
 AllCops:
   DisplayCopNames: true
+  TargetRubyVersion: 2.2.2
 
 Metrics/MethodLength:
   Max: 30
@@ -7,3 +8,7 @@ Metrics/AbcSize:
   Max: 30
 Metrics/CyclomaticComplexity:
   Max: 10
+Layout/EmptyLineAfterGuardClause:
+  Enabled: false
+Metrics/BlockLength:
+  Max: 50

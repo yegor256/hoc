@@ -1,6 +1,3 @@
-# encoding: utf-8
-#
-# Copyright (c) 2014-2019 Teamed.io
 # Copyright (c) 2014-2019 Yegor Bugayenko
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -51,7 +48,7 @@ Given(/^I run bash:$/) do |script|
   cmd = script.split("\n").join(' && ')
   @stdout = `#{cmd}`
   @exitstatus = $CHILD_STATUS.exitstatus
-  raise 'non-zero exit code' unless @exitstatus == 0
+  raise 'non-zero exit code' unless @exitstatus.zero?
 end
 
 When(%r{^I run bin/hoc with "([^"]*)"$}) do |arg|
@@ -67,7 +64,7 @@ Then(/^Stdout contains "([^"]*)"$/) do |txt|
 end
 
 Then(/^Exit code is zero$/) do
-  raise "Non-zero exit code #{@exitstatus}" unless @exitstatus == 0
+  raise "Non-zero exit code #{@exitstatus}" unless @exitstatus.zero?
 end
 
 Given(/^I have a "([^"]*)" file with content:$/) do |file, text|
