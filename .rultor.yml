@@ -2,22 +2,23 @@ assets:
   rubygems.yml: yegor256/home#assets/rubygems.yml
   s3cfg: yegor256/home#assets/s3cfg
 install: |
-  sudo gem install --no-ri --no-rdoc pdd
+  export GEM_HOME=~/.ruby
+  export GEM_PATH=$GEM_HOME:$GEM_PATH
+  sudo gem install pdd -v 0.20.5
   sudo apt-get install -y subversion diffstat
   sudo apt-get install -y software-properties-common
   sudo add-apt-repository -y ppa:git-core/ppa
   sudo apt-get update
   sudo apt-get remove -y git
   sudo apt-get install -y git
+  bundle install
 deploy:
   script: |
-    sudo bundle install
-    rake
+    bundle exec rake
 release:
   script: |
     pdd --verbose --file=/dev/null
-    bundle install
-    rake
+    bundle exec rake
     rm -rf *.gem
     sed -i "s/1\.0\.snapshot/${tag}/g" lib/hoc/version.rb
     git commit -m "${tag}" lib/hoc/version.rb
