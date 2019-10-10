@@ -5,10 +5,11 @@ install: |
   export GEM_HOME=~/.ruby
   export GEM_PATH=$GEM_HOME:$GEM_PATH
   sudo gem install pdd -v 0.20.5
+  sudo apt-get update --fix-missing
   sudo apt-get install -y subversion diffstat
   sudo apt-get install -y software-properties-common
   sudo add-apt-repository -y ppa:git-core/ppa
-  sudo apt-get update
+  sudo apt-get update --fix-missing
   sudo apt-get remove -y git
   sudo apt-get install -y git
   bundle install
