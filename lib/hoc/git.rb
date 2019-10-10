@@ -27,10 +27,12 @@ require 'hoc/hits'
 module HOC
   # Git source code base.
   class Git
-    def initialize(dir, exclude, author)
+    def initialize(dir, exclude, author, since, before)
       @dir = dir
       @exclude = exclude
       @author = author
+      @since = since
+      @before = before
     end
 
     def hits
@@ -43,7 +45,10 @@ module HOC
         '--ignore-space-change', '--ignore-all-space',
         '--ignore-submodules', '--no-color',
         '--find-copies-harder', '-M', '--diff-filter=ACDM',
-        "'--author=#{@author}'", '--', '.',
+        "'--author=#{@author}'",
+        "'--since=#{@since}'",
+        "'--before=#{@before}'",
+        '--', '.',
         @exclude.map { |e| "':(exclude,glob)#{e}'" }.join(' ')
       ].join(' ')
       [

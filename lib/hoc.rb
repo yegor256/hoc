@@ -38,13 +38,15 @@ module HOC
       @exclude = opts[:exclude] || []
       @author = opts[:author] || ''
       @format = opts[:format] || 'int'
+      @since = opts[:since] || '2000-01-01'
+      @before = opts[:before] || Time.now.strftime('%Y-%m-%d')
     end
 
     # Generate report.
     def report
       repo = nil
       if File.exist?(File.join(@dir, '.git'))
-        repo = Git.new(@dir, @exclude, @author)
+        repo = Git.new(@dir, @exclude, @author, @since, @before)
       elsif File.exist?(File.join(@dir, '.svn'))
         repo = Svn.new(@dir)
       else

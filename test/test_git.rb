@@ -47,7 +47,8 @@ class TestGit < Minitest::Test
         rm test.txt
         git commit -qam 'delete line'
       ")
-      hits = HOC::Git.new(dir, [], '').hits
+      hits = HOC::Git.new(dir, [], '', '2000-01-01',
+                          Time.now.strftime('%Y-%m-%d')).hits
       assert_equal 1, hits.size
       assert_equal 4, hits[0].total
     end
@@ -61,7 +62,8 @@ class TestGit < Minitest::Test
         cd '#{dir}'
         git init --quiet .
       ")
-      hits = HOC::Git.new(dir, [], '').hits
+      hits = HOC::Git.new(dir, [], '', '2000-01-01',
+                          Time.now.strftime('%Y-%m-%d')).hits
       assert_equal 1, hits.size
       assert_equal 0, hits[0].total
     end
@@ -83,7 +85,8 @@ class TestGit < Minitest::Test
         git add test.dat
         git commit -qam 'binary file modified'
       ")
-      hits = HOC::Git.new(dir, [], '').hits
+      hits = HOC::Git.new(dir, [], '', '2000-01-01',
+                          Time.now.strftime('%Y-%m-%d')).hits
       assert_equal 1, hits.size
       assert_equal 0, hits[0].total
     end
