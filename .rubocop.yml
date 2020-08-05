@@ -1,7 +1,11 @@
 AllCops:
+  Exclude:
+    - 'assets/**/*'
   DisplayCopNames: true
   TargetRubyVersion: 2.2.2
 
+Layout/EndOfLine:
+  EnforcedStyle: lf
 Metrics/MethodLength:
   Max: 30
 Metrics/AbcSize:
