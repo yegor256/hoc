@@ -3,6 +3,8 @@ AllCops:
     - 'assets/**/*'
   DisplayCopNames: true
   TargetRubyVersion: 2.2.2
+  SuggestExtensions: false
+  NewCops: enable
 
 Layout/EndOfLine:
   EnforcedStyle: lf

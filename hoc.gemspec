@@ -23,11 +23,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'hoc/version'
 
 Gem::Specification.new do |s|
-  s.specification_version = 2 if s.respond_to? :specification_version=
-  if s.respond_to? :required_rubygems_version=
-    s.required_rubygems_version = Gem::Requirement.new('>= 0')
-  end
-  s.rubygems_version = '2.2.2'
+  s.required_rubygems_version = Gem::Requirement.new('>= 0') if s.respond_to? :required_rubygems_version=
   s.required_ruby_version = '>= 2.2.2'
   s.name = 'hoc'
   s.version = HOC::VERSION
@@ -39,15 +35,8 @@ Gem::Specification.new do |s|
   s.homepage = 'http://github.com/teamed/hoc'
   s.files = `git ls-files`.split($RS)
   s.executables = s.files.grep(%r{^bin/}) { |f| File.basename(f) }
-  s.test_files = s.files.grep(%r{^(test|spec|features)/})
   s.rdoc_options = ['--charset=UTF-8']
   s.extra_rdoc_files = %w[README.md LICENSE.txt]
   s.add_runtime_dependency 'slop', '~>4.4'
-  s.add_development_dependency 'codecov', '0.1.10'
-  s.add_development_dependency 'cucumber', '1.3.11'
-  s.add_development_dependency 'minitest', '5.4'
-  s.add_development_dependency 'rake', '12.0.0'
-  s.add_development_dependency 'rdoc', '3.12.1'
-  s.add_development_dependency 'rubocop', '0.61.0'
-  s.add_development_dependency 'rubocop-rspec', '1.5.1'
+  s.metadata['rubygems_mfa_required'] = 'true'
 end

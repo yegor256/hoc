@@ -26,13 +26,13 @@ require 'English'
 Before do
   @cwd = Dir.pwd
   @dir = Dir.mktmpdir('test')
-  FileUtils.mkdir_p(@dir) unless File.exist?(@dir)
+  FileUtils.mkdir_p(@dir)
   Dir.chdir(@dir)
 end
 
 After do
   Dir.chdir(@cwd)
-  FileUtils.rm_rf(@dir) if File.exist?(@dir)
+  FileUtils.rm_rf(@dir)
 end
 
 Given(/^It is Unix$/) do
@@ -58,9 +58,7 @@ When(%r{^I run bin/hoc with "([^"]*)"$}) do |arg|
 end
 
 Then(/^Stdout contains "([^"]*)"$/) do |txt|
-  unless @stdout.include?(txt)
-    raise "STDOUT doesn't contain '#{txt}':\n\n--------\n#{@stdout}\n--------\n"
-  end
+  raise "STDOUT doesn't contain '#{txt}':\n\n--------\n#{@stdout}\n--------\n" unless @stdout.include?(txt)
 end
 
 Then(/^Exit code is zero$/) do
@@ -69,7 +67,5 @@ end
 
 Given(/^I have a "([^"]*)" file with content:$/) do |file, text|
   FileUtils.mkdir_p(File.dirname(file)) unless File.exist?(file)
-  File.open(file, 'w') do |f|
-    f.write(text)
-  end
+  File.write(file, text)
 end

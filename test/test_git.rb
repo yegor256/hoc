@@ -32,6 +32,7 @@ class TestGit < Minitest::Test
     Dir.mktmpdir 'test' do |dir|
       raise unless system("
         set -e
+        set -x
         cd '#{dir}'
         git init --quiet .
         git config user.email test@teamed.io
@@ -42,6 +43,7 @@ class TestGit < Minitest::Test
         echo 'good bye, world!' > test.txt
         git commit -qam 'modify line'
         rm test.txt
+        git add test.txt
         git commit -qam 'delete line'
       ")
       hits = HOC::Git.new(dir, [], '', '2000-01-01',

@@ -1,4 +1,3 @@
-# encoding: utf-8
 #
 # Copyright (c) 2014-2020 Teamed.io
 # Copyright (c) 2014-2020 Yegor Bugayenko
@@ -23,13 +22,13 @@
 
 require 'coveralls'
 
-if Gem.win_platform? then
+if Gem.win_platform?
   SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
     SimpleCov::Formatter::HTMLFormatter
   ]
   SimpleCov.start do
-    add_filter "/test/"
-    add_filter "/features/"
+    add_filter '/test/'
+    add_filter '/features/'
   end
 else
   SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
@@ -37,8 +36,8 @@ else
     Coveralls::SimpleCov::Formatter
   ]
   SimpleCov.start do
-    add_filter "/test/"
-    add_filter "/features/"
+    add_filter '/test/'
+    add_filter '/features/'
     minimum_coverage 100
   end
 end
