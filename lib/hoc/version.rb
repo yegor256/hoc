@@ -23,5 +23,5 @@
 # Copyright:: Copyright (c) 2014-2023 Yegor Bugayenko
 # License:: MIT
 module HOC
-  VERSION = '1.0.snapshot'.freeze
+  VERSION = '0.10.0'.freeze
 end
