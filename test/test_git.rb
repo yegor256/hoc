@@ -35,7 +35,7 @@ class TestGit < Minitest::Test
         set -x
         cd '#{dir}'
         git init --quiet .
-        git config user.email test@teamed.io
+        git config user.email test@zerocracy.com
         git config user.name test
         echo 'hello, world!' > test.txt
         git add test.txt
@@ -75,7 +75,7 @@ class TestGit < Minitest::Test
         set -e
         cd '#{dir}'
         git init --quiet .
-        git config user.email test@teamed.io
+        git config user.email test@zerocracy.com
         git config user.name test
         dd if=/dev/urandom of=test.dat bs=1 count=65536
         git add test.dat

@@ -1,5 +1,4 @@
 #
-# Copyright (c) 2014-2020 Teamed.io
 # Copyright (c) 2014-2023 Yegor Bugayenko
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy

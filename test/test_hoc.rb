@@ -35,7 +35,7 @@ class TestHOC < Minitest::Test
         set -e
         cd '#{dir}'
         git init .
-        git config user.email test@teamed.io
+        git config user.email test@zerocracy.com
         git config user.name test
         echo 'hello, world!' > test.txt
         git add test.txt

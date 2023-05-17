@@ -7,7 +7,7 @@ Feature: Git repo processing
     Given I run bash:
       """
       git init --quiet .
-      git config user.email test@teamed.io
+      git config user.email test@zerocracy.com
       git config user.name test
       echo 'hello, world!' > test.txt
       git add test.txt

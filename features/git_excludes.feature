@@ -7,7 +7,7 @@ Feature: Exclude dirs from Git counting
     Given I run bash:
       """
       git init --quiet .
-      git config user.email test@teamed.io
+      git config user.email test@zerocracy.com
       git config user.name test
       mkdir x
       echo 'hello, world!' > x/invalid.txt
