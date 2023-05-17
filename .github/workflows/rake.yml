@@ -20,5 +20,6 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
+      - run: sudo apt install -y diffstat
       - run: bundle update
       - run: bundle exec rake
