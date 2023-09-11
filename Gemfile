@@ -21,7 +21,7 @@
 source 'https://rubygems.org'
 gemspec
 
-gem 'cucumber', '9.0.1', require: false
+gem 'cucumber', '9.0.2', require: false
 gem 'minitest', '5.19.0', require: false
 gem 'rake', '13.0.6', require: false
 gem 'rdoc', '6.5.0', require: false
