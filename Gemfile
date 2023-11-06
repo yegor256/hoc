@@ -22,7 +22,7 @@ source 'https://rubygems.org'
 gemspec
 
 gem 'cucumber', '9.0.2', require: false
-gem 'minitest', '5.19.0', require: false
+gem 'minitest', '5.20.0', require: false
 gem 'rake', '13.1.0', require: false
 gem 'rdoc', '6.5.0', require: false
 gem 'rubocop', '1.52.1', require: false
