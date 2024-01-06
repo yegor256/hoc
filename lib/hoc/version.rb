@@ -1,4 +1,4 @@
-# Copyright (c) 2014-2023 Yegor Bugayenko
+# Copyright (c) 2014-2024 Yegor Bugayenko
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the 'Software'), to deal
@@ -20,7 +20,7 @@
 
 # HOC main module.
 # Author:: Yegor Bugayenko (yegor256@gmail.com)
-# Copyright:: Copyright (c) 2014-2023 Yegor Bugayenko
+# Copyright:: Copyright (c) 2014-2024 Yegor Bugayenko
 # License:: MIT
 module HOC
   VERSION = '1.0.snapshot'.freeze
