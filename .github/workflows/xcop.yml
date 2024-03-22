@@ -11,7 +11,7 @@ jobs:
   xcop:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: g4s8/xcop-action@master
         with:
           files: '**/*.xml'
