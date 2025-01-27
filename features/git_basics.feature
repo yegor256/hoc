@@ -24,4 +24,3 @@ Feature: Git repo processing
       """
     When I run bin/hoc with "-f int -d hoc-repo"
     Then Exit code is zero
-

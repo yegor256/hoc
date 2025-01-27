@@ -18,4 +18,3 @@ Feature: Exclude dirs from Git counting
     When I run bin/hoc with "-e x/** -e a.txt"
     Then Exit code is zero
     And Stdout contains "1"
-

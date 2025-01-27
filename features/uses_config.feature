@@ -12,4 +12,3 @@ Feature: Using .hoc config file
     When I run bin/hoc with "-f int"
     Then Exit code is zero
     And Stdout contains "[options]"
-
