@@ -22,5 +22,5 @@ jobs:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
       - run: sudo apt install -y diffstat
-      - run: bundle update
+      - run: bundle install
       - run: bundle exec rake

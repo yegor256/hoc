@@ -14,7 +14,7 @@ jobs:
           ruby-version: 3.3
           bundler-cache: true
       - run: sudo apt install -y diffstat
-      - run: bundle update
+      - run: bundle install
       - run: bundle exec rake
       - uses: codecov/codecov-action@v5
         with:
