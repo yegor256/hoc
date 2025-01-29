@@ -1,6 +1,7 @@
 AllCops:
   Exclude:
     - 'assets/**/*'
+    - 'vendor/**/*'
   DisplayCopNames: true
   TargetRubyVersion: 2.2.2
   SuggestExtensions: false
