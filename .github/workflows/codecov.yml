@@ -12,6 +12,7 @@ jobs:
       - uses: actions/setup-ruby@v1
         with:
           ruby-version: 3.3
+          bundler-cache: true
       - run: sudo apt install -y diffstat
       - run: bundle update
       - run: bundle exec rake
