@@ -6,7 +6,7 @@ install: |
   pdd -f /dev/null
   sudo bundle install --no-color "--gemfile=$(pwd)/Gemfile"
   sudo apt-get update --fix-missing
-  sudo apt-get install -y subversion diffstat
+  sudo apt-get install --yes subversion diffstat
   sudo apt-get install -y software-properties-common
   sudo add-apt-repository -y ppa:git-core/ppa
   sudo apt-get update --fix-missing
