@@ -16,6 +16,7 @@ merge:
   script: |
     bundle exec rake
 release:
+  pre: false
   script: |
     pdd --verbose --file=/dev/null
     bundle exec rake
