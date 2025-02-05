@@ -18,7 +18,7 @@ Layout/EmptyLineAfterGuardClause:
   Enabled: false
 Metrics/BlockLength:
   Max: 50
-required:
+require:
   - rubocop-rake
   - rubocop-minitest
   - rubocop-performance
