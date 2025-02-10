@@ -37,7 +37,7 @@ jobs:
           bundler-cache: true
       - run: sudo apt install -y diffstat
       - run: bundle config set --global path "$(pwd)/vendor/bundle"
-      - run: bundle install
+      - run: bundle install --no-color
       - run: bundle exec rake
       - uses: codecov/codecov-action@v5
         with:
