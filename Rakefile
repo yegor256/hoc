@@ -51,4 +51,3 @@ end
 Cucumber::Rake::Task.new(:'features:html') do |t|
   t.profile = 'html_report'
 end
-
