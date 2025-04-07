@@ -1,9 +1,9 @@
 [![EO principles respected here](https://www.elegantobjects.org/badge.svg)](https://www.elegantobjects.org)
-[![DevOps By Rultor.com](http://www.rultor.com/b/yegor256/hoc)](http://www.rultor.com/p/yegor256/hoc)
+[![DevOps By Rultor.com](https://www.rultor.com/b/yegor256/hoc)](https://www.rultor.com/p/yegor256/hoc)
 [![We recommend RubyMine](https://www.elegantobjects.org/rubymine.svg)](https://www.jetbrains.com/ruby/)
 
 [![rake](https://github.com/yegor256/hoc/actions/workflows/rake.yml/badge.svg)](https://github.com/yegor256/hoc/actions/workflows/rake.yml)
-[![Gem Version](https://badge.fury.io/rb/hoc.svg)](http://badge.fury.io/rb/hoc)
+[![Gem Version](https://badge.fury.io/rb/hoc.svg)](https://badge.fury.io/rb/hoc)
 [![Maintainability](https://api.codeclimate.com/v1/badges/4302208cf578d101143e/maintainability)](https://codeclimate.com/github/yegor256/hoc/maintainability)
 [![Test Coverage](https://img.shields.io/codecov/c/github/yegor256/hoc.svg)](https://codecov.io/github/yegor256/hoc?branch=master)
 [![Hits-of-Code](https://hitsofcode.com/github/yegor256/hoc)](https://hitsofcode.com/view/github/yegor256/hoc)
