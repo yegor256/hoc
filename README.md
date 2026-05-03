@@ -11,7 +11,7 @@
 It is a command line tool to calculate Hits-of-Code metric
 in a source code repository (at the moment we support Git 2+ and Subversion 1.7+).
 You can read more about Hits-of-Code metric in this blog post:
-[Hits-of-Code Instead of SLoC](http://www.yegor256.com/2014/11/14/hits-of-code.html).
+[Hits-of-Code Instead of SLoC](https://www.yegor256.com/2014/11/14/hits-of-code.html).
 
 You can also use [hitsofcode.com](https://hitsofcode.com) by
 [Valentin Brandl](https://www.vbrandl.net/), if you want to have a badge
@@ -30,7 +30,7 @@ $ hoc --help
 ```
 
 For Subversion statistics you must have
-[diffstat](http://sourceforge.net/projects/mingw/files/MSYS/Extension/diffstat/)
+[diffstat](https://sourceforge.net/projects/mingw/files/MSYS/Extension/diffstat/)
 installed.
 
 ## How to contribute

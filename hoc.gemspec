@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.description = 'Collects information about hits-of-code'
   s.authors = ['Yegor Bugayenko']
   s.email = 'yegor256@gmail.com'
-  s.homepage = 'https://github.com/teamed/hoc'
+  s.homepage = 'https://github.com/yegor256/hoc'
   s.files = `git ls-files | grep -v -E '^(test/|\\.|renovate)'`.split($RS)
   s.executables = s.files.grep(%r{^bin/}) { |f| File.basename(f) }
   s.rdoc_options = ['--charset=UTF-8']

@@ -30,7 +30,7 @@ module HOC
       elsif File.exist?(File.join(@dir, '.svn'))
         repo = Svn.new(@dir)
       else
-        raise 'Only Git repositories supported now'
+        raise 'Only Git and Subversion repositories are supported'
       end
       count = repo.hits.map(&:total).inject(:+)
       case @format
