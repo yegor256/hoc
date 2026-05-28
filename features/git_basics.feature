@@ -9,6 +9,7 @@ Feature: Git repo processing
     Given I run bash:
       """
       git init --quiet .
+      git config core.hooksPath /dev/null
       git config user.email test@zerocracy.com
       git config user.name test
       echo 'hello, world!' > test.txt

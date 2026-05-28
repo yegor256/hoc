@@ -36,6 +36,7 @@ module HOC
           Time.now,
           `#{cmd}`.split("\n").delete_if(&:empty?).map do |t|
             parts = t.split("\t").take(2)
+            next 0 if parts.any? { |n| n == '-' }
             parts.map! { |n| Integer(n) }
             parts.inject(:+)
           end.inject(:+) || 0

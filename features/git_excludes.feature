@@ -9,6 +9,7 @@ Feature: Exclude dirs from Git counting
     Given I run bash:
       """
       git init --quiet .
+      git config core.hooksPath /dev/null
       git config user.email test@zerocracy.com
       git config user.name test
       mkdir x
