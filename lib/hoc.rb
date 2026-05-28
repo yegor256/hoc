@@ -24,14 +24,6 @@ module HOC
 
     # Generate report.
     def report
-      repo = nil
-      if File.exist?(File.join(@dir, '.git'))
-        repo = Git.new(@dir, @exclude, @author, @since, @before)
-      elsif File.exist?(File.join(@dir, '.svn'))
-        repo = Svn.new(@dir)
-      else
-        raise 'Only Git and Subversion repositories are supported'
-      end
       count = repo.hits.map(&:total).inject(:+)
       case @format
       when 'xml'
@@ -43,7 +35,19 @@ module HOC
       when 'int'
         count
       else
-        raise 'Only "text|xml|json|int" formats are supported now'
+        raise(StandardError, 'Only "text|xml|json|int" formats are supported now')
+      end
+    end
+
+    private
+
+    def repo
+      if File.exist?(File.join(@dir, '.git'))
+        Git.new(@dir, @exclude, @author, @since, @before)
+      elsif File.exist?(File.join(@dir, '.svn'))
+        Svn.new(@dir)
+      else
+        raise(StandardError, 'Only Git and Subversion repositories are supported')
       end
     end
   end

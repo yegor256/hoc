@@ -1,10 +1,10 @@
 # SPDX-FileCopyrightText: Copyright (c) 2014-2026 Yegor Bugayenko
 # SPDX-License-Identifier: MIT
 
-require 'minitest/autorun'
 require 'hoc'
-require 'tmpdir'
+require 'minitest/autorun'
 require 'slop'
+require 'tmpdir'
 
 # HOC main module test.
 # Author:: Yegor Bugayenko (yegor256@gmail.com)
@@ -13,8 +13,9 @@ require 'slop'
 class TestHOC < Minitest::Test
   def test_basic_git
     skip if Gem.win_platform?
-    Dir.mktmpdir 'test' do |dir|
-      raise unless system("
+    Dir.mktmpdir('test') do |dir|
+      raise unless system(
+        "
         set -e
         cd '#{dir}'
         git init .
@@ -23,15 +24,17 @@ class TestHOC < Minitest::Test
         echo 'hello, world!' > test.txt
         git add test.txt
         git commit -am test
-      ")
-      assert HOC::Base.new(dir: '.', exclude: ['a/**'], author: '').report > 0
+      "
+      )
+      assert_operator(HOC::Base.new(dir: '.', exclude: ['a/**'], author: '').report, :>, 0)
     end
   end
 
   def test_basic_svn
     skip if Gem.win_platform?
-    Dir.mktmpdir 'test' do |dir|
-      raise unless system("
+    Dir.mktmpdir('test') do |dir|
+      raise unless system(
+        "
         set -e
         cd '#{dir}'
         svnadmin create base
@@ -45,22 +48,23 @@ class TestHOC < Minitest::Test
         svn rm test.txt
         svn ci -m 'third commit'
         svn up
-      ")
-      assert HOC::Base.new(dir: File.join(dir, 'repo')).report > 0
+      "
+      )
+      assert_operator(HOC::Base.new(dir: File.join(dir, 'repo')).report, :>, 0)
     end
   end
 
   def test_fails_if_not_repo
-    Dir.mktmpdir 'test' do |dir|
-      assert_raises RuntimeError do
+    Dir.mktmpdir('test') do |dir|
+      assert_raises(StandardError) do
         HOC::Base.new(dir: dir).report
       end
     end
   end
 
   def test_fails_if_not_int
-    Dir.mktmpdir 'test' do |dir|
-      assert_raises RuntimeError do
+    Dir.mktmpdir('test') do |dir|
+      assert_raises(StandardError) do
         HOC::Base.new(dir: dir, format: 'text').report
       end
     end

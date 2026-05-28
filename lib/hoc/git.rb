@@ -17,7 +17,7 @@ module HOC
 
     def hits
       version = `git --version`.split(/ /)[2]
-      raise "git version #{version} is too old, upgrade it to 2.0+" unless
+      raise(StandardError, "git version #{version} is too old, upgrade it to 2.0+") unless
         Gem::Version.new(version) >= Gem::Version.new('2.0')
       cmd = [
         "cd #{@dir} && git",
@@ -34,8 +34,10 @@ module HOC
       [
         Hits.new(
           Time.now,
-          `#{cmd}`.split(/\n/).delete_if(&:empty?).map do |t|
-            t.split(/\t/).take(2).map(&:to_i).inject(:+)
+          `#{cmd}`.split("\n").delete_if(&:empty?).map do |t|
+            parts = t.split("\t").take(2)
+            parts.map! { |n| Integer(n) }
+            parts.inject(:+)
           end.inject(:+) || 0
         )
       ]

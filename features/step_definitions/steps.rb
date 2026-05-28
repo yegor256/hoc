@@ -1,10 +1,10 @@
 # SPDX-FileCopyrightText: Copyright (c) 2014-2026 Yegor Bugayenko
 # SPDX-License-Identifier: MIT
 
-require 'hoc'
-require 'tmpdir'
-require 'slop'
 require 'English'
+require 'hoc'
+require 'slop'
+require 'tmpdir'
 
 Before do
   @cwd = Dir.pwd
@@ -31,7 +31,7 @@ Given(/^I run bash:$/) do |script|
   cmd = script.split("\n").join(' && ')
   @stdout = `#{cmd}`
   @exitstatus = $CHILD_STATUS.exitstatus
-  raise 'non-zero exit code' unless @exitstatus.zero?
+  raise(StandardError, 'non-zero exit code') unless @exitstatus.zero?
 end
 
 When(%r{^I run bin/hoc with "([^"]*)"$}) do |arg|
@@ -41,11 +41,12 @@ When(%r{^I run bin/hoc with "([^"]*)"$}) do |arg|
 end
 
 Then(/^Stdout contains "([^"]*)"$/) do |txt|
-  raise "STDOUT doesn't contain '#{txt}':\n\n--------\n#{@stdout}\n--------\n" unless @stdout.include?(txt)
+  msg = "STDOUT doesn't contain '#{txt}':\n\n--------\n#{@stdout}\n--------\n"
+  raise(StandardError, msg) unless @stdout.include?(txt)
 end
 
 Then(/^Exit code is zero$/) do
-  raise "Non-zero exit code #{@exitstatus}" unless @exitstatus.zero?
+  raise(StandardError, "Non-zero exit code #{@exitstatus}") unless @exitstatus.zero?
 end
 
 Given(/^I have a "([^"]*)" file with content:$/) do |file, text|

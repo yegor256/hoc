@@ -21,7 +21,13 @@ Layout/EmptyLineAfterGuardClause:
   Enabled: false
 Metrics/BlockLength:
   Max: 50
-require:
+Elegant/NoClassInModule:
+  Exclude:
+    - 'lib/**/*'
+    - '**/test_*.rb'
+    - '**/*Test.rb'
+plugins:
   - rubocop-rake
   - rubocop-minitest
   - rubocop-performance
+  - rubocop-elegant

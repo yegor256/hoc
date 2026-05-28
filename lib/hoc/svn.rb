@@ -13,19 +13,15 @@ module HOC
 
     def hits
       version = `svn --non-interactive --version --quiet`
-      raise "svn version #{version} is too old, upgrade it to 1.7+" unless
+      raise(StandardError, "svn version #{version} is too old, upgrade it to 1.7+") unless
         Gem::Version.new(version) >= Gem::Version.new('1.7')
-      raise 'diffstat is not installed' if
+      raise(StandardError, 'diffstat is not installed') if
         `diffstat -V`.index('version').nil?
-      log = `cd #{@dir} && svn log --diff | diffstat`
-      [
-        Hits.new(
-          Time.now,
-          log.split(/\n/).last.split(/[^\d]/)
-            .map(&:to_i).select { |x| x > 0 }
-            .drop(1).inject(:+)
-        )
-      ]
+      parts = `cd #{@dir} && svn log --diff | diffstat`.split("\n").last.split(/[^\d]/)
+      parts.reject!(&:empty?)
+      parts.map! { |n| Integer(n) }
+      parts.select! { |x| x > 0 }
+      [Hits.new(Time.now, parts.drop(1).inject(:+))]
     end
   end
 end
