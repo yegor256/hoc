@@ -17,7 +17,7 @@ jobs:
         with:
           ruby-version: 3.3
           bundler-cache: true
-      - run: sudo apt install -y diffstat
+      - run: sudo apt install -y diffstat subversion
       - run: bundle config set --global path "$(pwd)/vendor/bundle"
       - run: bundle install --no-color
       - run: bundle exec rake

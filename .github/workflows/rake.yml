@@ -23,7 +23,7 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
-      - run: sudo apt install -y diffstat
+      - run: sudo apt install -y diffstat subversion
       - run: bundle config set --global path "$(pwd)/vendor/bundle"
       - run: bundle install --no-color
       - run: bundle exec rake
