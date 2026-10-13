@@ -39,9 +39,8 @@ GEM
     cucumber-query (16.1.1)
       cucumber-messages (>= 34.1, < 36)
     cucumber-tag-expressions (11.0.1)
-    date (3.5.1)
     diff-lcs (2.0.0)
-    erb (6.0.4)
+    erb (6.0.7)
     ffi (1.17.4-arm64-darwin)
     ffi (1.17.4-x64-mingw-ucrt)
     ffi (1.17.4-x86_64-linux-gnu)
@@ -58,15 +57,17 @@ GEM
       ast (~> 2.4.1)
       racc
     prism (1.9.0)
-    psych (5.3.1)
-      date
-      stringio
     racc (1.8.1)
     rainbow (3.1.1)
     rake (13.4.2)
-    rdoc (6.17.0)
+    rbs (4.2.0)
+      logger
+      prism (>= 1.6.0)
+      tsort
+    rdoc (8.1.0)
       erb
-      psych (>= 4.0.0)
+      prism (>= 1.6.0)
+      rbs (>= 4.0.0)
       tsort
     regexp_parser (2.13.1)
     rubocop (1.92.0)
@@ -100,7 +101,6 @@ GEM
     ruby-progressbar (1.13.0)
     simplecov (1.3.2)
     slop (4.10.1)
-    stringio (3.2.0)
     sys-uname (1.5.1)
       ffi (~> 1.1)
       memoist3 (~> 1.0.0)
@@ -126,7 +126,7 @@ DEPENDENCIES
   hoc!
   minitest (~> 5.23)
   rake (~> 13.2)
-  rdoc (~> 6.7)
+  rdoc (~> 8.0)
   rubocop (~> 1.72)
   rubocop-elegant (~> 0.5)
   rubocop-minitest (~> 0.38)
