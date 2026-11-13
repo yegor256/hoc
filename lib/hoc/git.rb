@@ -3,6 +3,7 @@
 
 require 'date'
 require 'hoc/hits'
+require 'open3'
 
 module HOC
   # Git source code base.
@@ -19,22 +20,22 @@ module HOC
       version = `git --version`.split(/ /)[2]
       raise(StandardError, "git version #{version} is too old, upgrade it to 2.0+") unless
         Gem::Version.new(version) >= Gem::Version.new('2.0')
-      cmd = [
-        "cd #{@dir} && git",
-        'log', '--pretty=tformat:', '--numstat',
+      stdout, _status = Open3.capture2(
+        'git', 'log', '--pretty=tformat:', '--numstat',
         '--ignore-space-change', '--ignore-all-space',
         '--ignore-submodules', '--no-color',
         '--find-copies-harder', '-M', '--diff-filter=ACDM',
-        "'--author=#{@author}'",
-        "'--since=#{@since}'",
-        "'--before=#{@before}'",
+        "--author=#{@author}",
+        "--since=#{@since}",
+        "--before=#{@before}",
         '--', '.',
-        @exclude.map { |e| "':(exclude,glob)#{e}'" }.join(' ')
-      ].join(' ')
+        *@exclude.map { |e| ":(exclude,glob)#{e}" },
+        chdir: @dir
+      )
       [
         Hits.new(
           Time.now,
-          `#{cmd}`.split("\n").delete_if(&:empty?).map do |t|
+          stdout.split("\n").delete_if(&:empty?).map do |t|
             parts = t.split("\t").take(2)
             next 0 if parts.any? { |n| n == '-' }
             parts.map! { |n| Integer(n) }
