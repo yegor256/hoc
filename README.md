@@ -31,6 +31,22 @@ Run it locally and read its output:
 hoc --help
 ```
 
+For example, this is how you count hits of code
+made by a specific author only (the value of `--author`
+is matched as a regular expression against the author
+name and email):
+
+```bash
+hoc --author="Fabricio Cabral"
+```
+
+You can also restrict the calculation by dates and
+skip some files or directories from counting:
+
+```bash
+hoc --since=2024-01-01 --before=2024-12-31 --exclude="vendor/**"
+```
+
 For Subversion statistics you must have
 [diffstat](https://sourceforge.net/projects/mingw/files/MSYS/Extension/diffstat/)
 installed.
