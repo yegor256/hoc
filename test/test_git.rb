@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: Copyright (c) 2014-2026 Yegor Bugayenko
 # SPDX-License-Identifier: MIT
 
+require 'fileutils'
 require 'hoc/git'
 require 'minitest/autorun'
 require 'tmpdir'
@@ -77,5 +78,40 @@ class TestGit < Minitest::Test
       assert_equal(1, hits.size)
       assert_equal(0, hits[0].total)
     end
+  end
+
+  def test_parses_author_with_spaces_and_quotes
+    Dir.mktmpdir('test') do |dir|
+      prepares(dir)
+      john = 'John "JJ" Smith <john@zerocracy.com>'
+      commits(dir, 'hello, world!', john, 'first')
+      commits(dir, 'good bye, world!', john, 'second')
+      raise unless system(
+        'git', 'commit', '--quiet', '--allow-empty', '--author',
+        'Someone Else <else@zerocracy.com>', '-m', 'third', chdir: dir
+      )
+      hits = HOC::Git.new(dir, [], 'John "JJ" Smith', '2000-01-01', Time.now.strftime('%Y-%m-%d')).hits
+      assert_equal(1, hits.size)
+      assert_equal(3, hits[0].total)
+    end
+  end
+
+  private
+
+  def prepares(dir)
+    hooks = File.join(dir, 'hooks')
+    FileUtils.mkdir_p(hooks)
+    [
+      %w[git init --quiet .],
+      %w[git config user.email test@zerocracy.com],
+      %w[git config user.name test],
+      ['git', 'config', 'core.hooksPath', hooks]
+    ].each { |args| raise unless system(*args, chdir: dir) }
+  end
+
+  def commits(dir, content, author, message)
+    File.write(File.join(dir, 'test.txt'), "#{content}\n")
+    raise unless system('git', 'add', 'test.txt', chdir: dir)
+    raise unless system('git', 'commit', '--quiet', '--author', author, '-m', message, chdir: dir)
   end
 end
